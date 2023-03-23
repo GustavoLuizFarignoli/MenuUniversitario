@@ -14,6 +14,7 @@
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: #707070;
+    --border-color: #000;
 
     /* ====== Transition ====== */
     --tran-03: all 0.2s ease;
@@ -40,6 +41,7 @@ body.dark{
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
     --text-color: #ccc;
+    --border-color: gray;
 }
 
  .sidebar{
@@ -49,7 +51,9 @@ body.dark{
     height: 100%;
     width: 270px;
     padding: 10px 14px;
-    background: var(--sidebar-color);
+    background: var(--sidebar-color); /* var(--sidebar-color) */
+    border-right: 2px solid var(--border-color);
+    backdrop-filter: blur(1000px);
     transition: var(--tran-05);
     z-index: 100;  
 }
@@ -66,22 +70,33 @@ body.dark{
 }
 
 .sidebar header .image,
+.sidebar .icon-pesquisar,
+.sidebar .icon-home,
 .sidebar .icon-amarelo,
 .sidebar .icon-azul,
 .sidebar .icon-verde,
 .sidebar .icon-laranja,
 .sidebar .icon-vermelho,
-.sidebar .icon-medicina{
+.sidebar .icon-medicina,
+.sidebar .moon,
+.sidebar .sun,
+.sidebar .icon-sair{
     min-width: 60px;
     border-radius: 6px;
 }
 
+.sidebar .icon-pesquisar,
+.sidebar .icon-home,
 .sidebar .icon-amarelo,
 .sidebar .icon-azul,
 .sidebar .icon-verde,
 .sidebar .icon-laranja,
 .sidebar .icon-vermelho,
-.sidebar .icon-medicina{
+.sidebar .icon-medicina,
+.sidebar .moon,
+.sidebar .sun,
+.sidebar .icon-sair{
+    color: var(--text-color);
     min-width: 60px;
     border-radius: 6px;
     height: 100%;
@@ -206,31 +221,30 @@ body.dark .sidebar header .toggle{
 }
 
 .sidebar li a:hover{
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-light);
 }
 
 .sidebar li a:hover .text{
-    color: var(--sidebar-color);
+    color: var(--text-color);
 }
 
-/* deu errado :)*/
 .sidebar li a:hover .icon-amarelo{
-    color: yellow;
+    color: #ffdf64;
 }
 .sidebar li a:hover .icon-azul{
-    color: blue;
+    color: #47b9ff;
 }
 .sidebar li a:hover .icon-verde{
-    color: green;
+    color: #0dab76;
 }
 .sidebar li a:hover .icon-laranja{
     color:orange;
 }
 .sidebar li a:hover .icon-vermelho{
-    color: red;
+    color: #ff1053;
 }
 .sidebar li a:hover .icon-medicina{
-    color: pink;
+    color: #ff1053;
 }
 
 body.dark .sidebar li a:hover .icon,
