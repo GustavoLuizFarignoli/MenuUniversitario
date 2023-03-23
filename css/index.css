@@ -13,8 +13,8 @@ body{
     height: 70px;
     width: 100%;
     padding: 15px;
-    background-color: #a9d8b8;
-    border-bottom:solid #1C1E21;
+    background-color: #800000;
+    border-bottom:solid #fcfcfc;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -23,7 +23,7 @@ body{
 
 #listanav{  
     width: 80%;
-    color: #1c1e21ff;
+    color: #fcfcfc;
     font: larger;
     font-weight: bold;
     display: flex;
@@ -63,7 +63,7 @@ body{
     display:block;
     width:30px;
     height:5px;
-    background:#1C1E21;
+    background:#fcfcfc;
     margin:5px 0px;
     cursor:pointer;
 }
