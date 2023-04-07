@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>Menu Universitário</title>
     <link rel="icon" type="image/x-icon" href="imagens/u.png">
@@ -36,7 +37,7 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="index.html">
                             <i class='bx bx-home-alt icon-home' ></i>
                             <span class="text nav-text">Home</span>
                         </a>
@@ -110,24 +111,35 @@
     </nav>
 
     <section class="home">
-        <form action="action_page.php">
+        <form action="action_page.php" method="post">
             <div class="container">
-              
+
+                <div class="group">
+                    <input required="" type="email" class="input" name="email" id="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label><b>Email</b></label>
+                </div>
+
+                <div class="group">
+                    <input required="" type="password" class="input"  name="psw" id="psw" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label><b>Senha</b></label>
+                </div>
+                
+                <div class="group">
+                    <input required="" type="password" class="input"  name="psw-repeat" id="psw-repeat" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label><b>Confirmar senha</b></label>
+                </div>
           
-              <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Digite seu email" name="email" id="email" required>
-          
-              <label for="psw"><b>Senha</b></label>
-              <input type="password" placeholder="Digite sua senha" name="psw" id="psw" required>
-          
-              <label for="psw-repeat"><b>Digite sua senha novamente</b></label>
-              <input type="password" placeholder="Digite sua senha" name="psw-repeat" id="psw-repeat" required>
-              <hr>
-              <button type="submit" class="registerbtn">Registre-se</button>
+                <button type="submit" class="registerbtn">Registre-se</button>
             </div>
           
-            <div class="container signin">
-              <p>Já possui uma conta? <a href="#">Entrar</a>.</p>
+            <div class="signin">
+              <p>Já possui uma conta? <a href="login.html">Entrar</a>.</p>
             </div>
           </form>
     </section>

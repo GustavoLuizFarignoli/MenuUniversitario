@@ -1,0 +1,140 @@
+.container{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    color: var(--text-color);
+}
+
+.signin a{
+    color: var(--primary-color);
+}
+
+
+/* Conjunto de css para estilo dos campos de imput do registro*/
+.group {
+    position: relative;
+    margin: 1.2%;
+    align-self: center;
+   }
+   
+   .input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+   }
+   
+   .input:focus {
+    outline: none;
+   }
+   
+   label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+   }
+   
+   .input:focus ~ label, .input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+   }
+   
+   .bar {
+    position: relative;
+    display: block;
+    width: 200px;
+   }
+   
+   .bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+   }
+   
+   .bar:before {
+    left: 50%;
+   }
+   
+   .bar:after {
+    right: 50%;
+   }
+   
+   .input:focus ~ .bar:before, .input:focus ~ .bar:after {
+    width: 50%;
+   }
+   
+   .highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+   }
+   
+   .input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+   }
+   
+   @keyframes inputHighlighter {
+    from {
+     background: #5264AE;
+    }
+   
+    to {
+     width: 0;
+     background: transparent;
+    }
+   }
+   
+   /* conjuntos de códigos css para o botão de submit */
+.registerbtn {
+    align-self: center;
+    width: 200px;
+    margin-top: 10px;
+    background-color: var(--body-color);
+    color: var(--text-color) ;
+    border-radius: 10em;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 1em 2em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 0 0 var(--border-color);
+}
+  
+.registerbtn:hover {
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 2px 5px 0 0 var(--border-color);
+};
+  
+.registerbtn:active {
+    transform: translateY(2px) translateX(1px);
+    box-shadow: 0 0 0 0 var(--border-color);
+};

@@ -80,7 +80,8 @@ body.dark{
 .sidebar .icon-medicina,
 .sidebar .moon,
 .sidebar .sun,
-.sidebar .icon-sair{
+.sidebar .icon-sair,
+.sidebar .icon-login{
     min-width: 60px;
     border-radius: 6px;
 }
@@ -95,7 +96,8 @@ body.dark{
 .sidebar .icon-medicina,
 .sidebar .moon,
 .sidebar .sun,
-.sidebar .icon-sair{
+.sidebar .icon-sair,
+.sidebar .icon-login{
     color: var(--text-color);
     min-width: 60px;
     border-radius: 6px;
