@@ -134,6 +134,13 @@
                     <span class="bar"></span>
                     <label><b>Confirmar senha</b></label>
                 </div>
+
+                <div class="group">
+                    <input type="checkbox" value="" id="showpassbox">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label><b>Visualizar senha</b></label>
+                </div>
           
                 <button type="submit" class="registerbtn">Registre-se</button>
             </div>
@@ -146,32 +153,44 @@
 
     <script>
         const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
+        sidebar = body.querySelector('nav'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+        const cb = document.querySelector('#showpassbox');
+        const pass = document.querySelector('#psw');
+        const passconfirm = document.querySelector('#psw-repeat');
 
 
-toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
-})
+        toggle.addEventListener("click" , () =>{
+            sidebar.classList.toggle("close");
+        })
 
-searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
+        searchBtn.addEventListener("click" , () =>{
+            sidebar.classList.remove("close");
+        })
 
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Modo Claro";
-    }else{
-        modeText.innerText = "Modo Escuro";
-        
-    }
-});
+        modeSwitch.addEventListener("click" , () =>{
+            body.classList.toggle("dark");
+            
+            if(body.classList.contains("dark")){
+                modeText.innerText = "Modo Claro";
+            }else{
+                modeText.innerText = "Modo Escuro";
+                
+            }
+        });
+
+        cb.addEventListener("click", function (){
+            if (pass.type == 'password'){
+                pass.type = 'text';
+                passconfirm.type = 'text';
+            } else {
+                pass.type = 'password';
+                passconfirm.type = 'password';
+            }
+        })
     </script>
-
 </body>
 </html>
