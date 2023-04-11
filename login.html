@@ -110,72 +110,78 @@
     </nav>
 
     <section class="home">
-        <form>
-            <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example1">Email:</label>
-              <input type="email" id="form2Example1" class="form-control" placeholder="Insira seu Email" />
+        <form action="" method="post">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Insira seu Email" required>
             </div>
           
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form2Example2">Senha:</label>
-              <input type="password" id="form2Example2" class="form-control" placeholder="Insira sua Senha" />
+            <div>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" placeholder="Insira sua Senha" required>
+            </div>
+            
+            <div>
+                <input type="checkbox" value="" id="showpassbox">
+                <label for="showpassbox"> Visualizar senha </label>
+            </div>
+
+            <!--
+            <div>
+                <input type="checkbox" value="" id="remeberbox" checked>
+                <label for="remeberbox"> Lembrar de mim! </label>
             </div>
           
-            <!-- 2 column grid layout for inline styling -->
-            <div class="row mb-4">
-              <div class="col d-flex justify-content-center">
-                <!-- Checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                  <label class="form-check-label" for="form2Example31"> Lembrar de mim! </label>
-                </div>
-              </div>
-          
-              <div class="col">
-                <!-- Simple link -->
+            <div>
                 <a href="#!">Esqueceu sua senha?</a>
-              </div>
             </div>
-          
-            <!-- Submit button -->
-            <button type="button" class="btn btn-outline-primary">Entrar</button>         
-               <!-- Register buttons -->
+            -->
+
+            <button type="submit">Entrar</button>         
             <div class="text-center">
-              <p>Ainda não faz parte dessa comunidade? <a href="register.html">Registre-se</a></p>
-              </button>
+                <p>Ainda não faz parte dessa comunidade? <a href="register.html">Registre-se</a></p>
             </div>
-          </form>
+        </form>
     </section>
 
     <script>
         const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
+        sidebar = body.querySelector('nav'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+        const cb = document.querySelector('#showpassbox');
+        const passbox = document.querySelector('#password');
 
 
-toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
-})
+        toggle.addEventListener("click" , () =>{
+            sidebar.classList.toggle("close");
+        })
 
-searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
+        searchBtn.addEventListener("click" , () =>{
+            sidebar.classList.remove("close");
+        })
 
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Modo Claro";
-    }else{
-        modeText.innerText = "Modo Escuro";
-        
-    }
-});
+        modeSwitch.addEventListener("click" , () =>{
+            body.classList.toggle("dark");
+            
+            if(body.classList.contains("dark")){
+                modeText.innerText = "Modo Claro";
+            }else{
+                modeText.innerText = "Modo Escuro";
+                
+            }
+        });
+
+        cb.addEventListener("click", function (){
+            if (passbox.type == 'password'){
+                passbox.type = 'text';
+            } else {
+                passbox.type = 'password'
+            }
+        })
+
     </script>
-
 </body>
 </html>
