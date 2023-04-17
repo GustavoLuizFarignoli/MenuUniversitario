@@ -111,6 +111,12 @@
 
     <section class="home">
         <form action="" method="post">
+
+            <div>
+                <input type="radio" id="user" name="type" value="1" onclick="changetype(1)" checked> Sou Usuário
+                <input type="radio" id="ger" name="type" value="2" onclick="changetype(2)"> Sou Gerente
+            </div>
+
             <div>
                 <label for="email">Email:</label>
                 <input type="email" id="email" placeholder="Insira seu Email" required>
@@ -119,6 +125,11 @@
             <div>
                 <label for="password">Senha:</label>
                 <input type="password" id="password" placeholder="Insira sua Senha" required>
+            </div>
+
+            <div id="cnpjdiv" hidden>
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" placeholder="Insira seu CNPJ" required>
             </div>
             
             <div>
@@ -181,6 +192,16 @@
                 passbox.type = 'password'
             }
         })
+  
+        function changetype(type){
+            var cnpj = document.getElementById("cnpjdiv")
+            if (type === 2){
+                cnpj.hidden = false;
+            } else {
+                cnpj.hidden = true;
+            }
+        }
+
 
     </script>
 </body>
