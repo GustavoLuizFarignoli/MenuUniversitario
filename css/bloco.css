@@ -1,0 +1,30 @@
+.card {
+    box-sizing: border-box;
+    width: 190px;
+    height: 254px;
+    background: var(--sidebar-color);
+    border: 0.5px solid var(--border-color);
+    margin-top: 10px;
+    padding: 12px 60px;
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: var(--text-color);
+  }
+  
+  .card:hover {
+    border: 1px solid var(--border-color);
+    transform: scale(1.05);
+  }
+  
+  .card:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+  }

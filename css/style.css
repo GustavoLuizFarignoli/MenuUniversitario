@@ -35,8 +35,8 @@ body{
 }
 
 body.dark{
-    --body-color: #18191a;
-    --sidebar-color: #242526;
+    --body-color: #242526;
+    --sidebar-color: #3a3b3c;
     --primary-color: #3a3b3c;
     --primary-color-light: #3a3b3c;
     --toggle-color: #fff;
@@ -52,7 +52,7 @@ body.dark{
     width: 270px;
     padding: 10px 14px;
     background: var(--sidebar-color); /* var(--sidebar-color) */
-    border-right: 2px solid var(--border-color);
+    border-right: 0.5px solid var(--border-color);
     backdrop-filter: blur(1000px);
     transition: var(--tran-05);
     z-index: 100;  
@@ -335,12 +335,22 @@ body.dark .switch::before{
     width: calc(100% - 250px);
     background-color: var(--body-color);
     transition: var(--tran-05);
+    display: flex;
+    flex-direction: row;
+    padding: 12px 60px;
 }
 .home .text{
     font-size: 30px;
     font-weight: 500;
     color: var(--text-color);
     padding: 12px 60px;
+}
+
+.home .card{
+    padding: 12px 60px;
+    display: flex;
+    flex-direction: row;
+    margin-left:10px; ;
 }
 
 .sidebar.close .home{
@@ -351,3 +361,4 @@ body.dark .switch::before{
 body.dark .home .text{
     color: var(--text-color);
 }
+
