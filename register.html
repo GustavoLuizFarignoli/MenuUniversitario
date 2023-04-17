@@ -111,8 +111,15 @@
     </nav>
 
     <section class="home">
-        <form action="action_page.php" method="post">
+        <form action="login_actionPOST.php" method="post" id="register" name="register">
             <div class="container">
+
+                <div class="group">
+                    <input required="" type="text" class="input" name="nome" id="nome" pattern="[a-zA-Z]*">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label><b>Nome completo</b></label>
+                </div>
 
                 <div class="group">
                     <input required="" type="email" class="input" name="email" id="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
@@ -122,17 +129,19 @@
                 </div>
 
                 <div class="group">
-                    <input required="" type="password" class="input"  name="psw" id="psw" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$">
+                    <input required="" type="password" class="input"  name="psw" id="psw" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\d\s]){8,}$ "onkeyup="check();">
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label><b>Senha</b></label>
                 </div>
-                
-                <div class="group">
-                    <input required="" type="password" class="input"  name="psw-repeat" id="psw-repeat" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$">
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label><b>Confirmar senha</b></label>
+                <div style="display: flex; flex-direction: row; align-self: center;">
+                    <div class="group">
+                        <input required="" type="password" class="input"  name="psw-repeat" id="psw-repeat" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\d\s]){8,}$" onkeyup="check();">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label><b>Confirmar senha</b></label>
+                    </div>
+                    <i class="bx bx-check" style="color: rgb(21, 173, 21); visibility: hidden;" ></i>
                 </div>
 
                 <div class="group">
@@ -142,7 +151,7 @@
                     <label><b>Visualizar senha</b></label>
                 </div>
           
-                <button type="submit" class="registerbtn">Registre-se</button>
+                <button type="submit" class="registerbtn" >Registre-se</button>
             </div>
           
             <div class="signin">
@@ -191,6 +200,15 @@
                 passconfirm.type = 'password';
             }
         })
+
+        var check = function() {
+            if (document.getElementById('psw').value ==
+                document.getElementById('psw-repeat').value) {
+                document.getElementById('message').innerHTML = 'matching';
+            } else {
+               document.getElementById('message').innerHTML = 'not matching';
+            }
+            }
     </script>
 </body>
 </html>
