@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,7 +50,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="blocoAzul.html">
                             <i class='bx bx-building icon-azul'></i>
                             <span class="text nav-text">Bloco Azul</span>
                         </a>
@@ -129,19 +128,19 @@
                 </div>
 
                 <div class="group">
-                    <input required="" type="password" class="input"  name="psw" id="psw" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\d\s]){8,}$ "onkeyup="check();">
+                    <input required="" type="password" class="input" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,8}"onkeyup="check();">
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label><b>Senha</b></label>
                 </div>
                 <div style="display: flex; flex-direction: row; align-self: center;">
                     <div class="group">
-                        <input required="" type="password" class="input"  name="psw-repeat" id="psw-repeat" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\d\s]){8,}$" onkeyup="check();">
+                        <input required="" type="password" class="input" name="psw-repeat" id="psw-repeat" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,8}" onkeyup="check();">
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label><b>Confirmar senha</b></label>
                     </div>
-                    <i class="bx bx-check" style="color: rgb(21, 173, 21); visibility: hidden;" ></i>
+                    <i class="bx bx-check" id="verify" style="color: rgb(21, 173, 21); visibility: hidden;"></i>
                 </div>
 
                 <div class="group">
@@ -201,12 +200,28 @@
             }
         })
 
-        var check = function() {
+        passconfirm.addEventListener("focus", function(){
+            document.getElementById("verify").style.visibility = "visible";
+        })
+
+        passconfirm.addEventListener("blur", function(){
+            document.getElementById("verify").style.visibility = "hidden";
+
+        })
+
+        function check() {
             if (document.getElementById('psw').value ==
                 document.getElementById('psw-repeat').value) {
-                document.getElementById('message').innerHTML = 'matching';
+                console.log("matching");
+                document.getElementById("verify").className = "bx bx-check";
+                document.getElementById("verify").style.color = "green";
+                //document.getElementById('message').innerHTML = 'matching';
             } else {
-               document.getElementById('message').innerHTML = 'not matching';
+                console.log("not matching");
+                document.getElementById("verify").className = "bx bx-x";
+                document.getElementById("verify").style.color = "red";
+                
+               //document.getElementById('message').innerHTML = 'not matching';
             }
             }
     </script>
