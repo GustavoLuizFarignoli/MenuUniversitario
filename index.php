@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
+    <?php
+        session_start();
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -99,12 +101,13 @@
                         <span class="switch"></span>
                     </div>
                 </li>
-                <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-out icon-sair' ></i>
-                        <span class="text nav-text">Sair</span>
-                    </a>
-                </li>
+                <?php
+                    if(isset($_SESSION["user"])){
+                        echo '<li class="">' . '<a href="#">' . "<i class='bx bx-log-out icon-sair' >" . '</i>' . '<span class="text nav-text">' . 'Sair</span>' . '</a>' . '</li>';
+                    } else {
+                        echo '<li class="">' . '<a href="#">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                    } 
+                ?>
             </div>
         </div>
 
@@ -116,31 +119,31 @@
 
     <script>
         const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
+        sidebar = body.querySelector('nav'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
 
 
-toggle.addEventListener("click" , () =>{
-    sidebar.classList.toggle("close");
-})
+        toggle.addEventListener("click" , () =>{
+            sidebar.classList.toggle("close");
+        })
 
-searchBtn.addEventListener("click" , () =>{
-    sidebar.classList.remove("close");
-})
+        searchBtn.addEventListener("click" , () =>{
+            sidebar.classList.remove("close");
+        })
 
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-    
-    if(body.classList.contains("dark")){
-        modeText.innerText = "Modo Claro";
-    }else{
-        modeText.innerText = "Modo Escuro";
-        
-    }
-});
+        modeSwitch.addEventListener("click" , () =>{
+            body.classList.toggle("dark");
+            
+            if(body.classList.contains("dark")){
+                modeText.innerText = "Modo Claro";
+            }else{
+                modeText.innerText = "Modo Escuro";
+                
+            }
+        });
     </script>
 
 </body>
