@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -72,7 +71,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="./../blocoVermelho/blocoVermelho.html">
+                        <a href="./blocoVermelho.html">
                             <i class='bx bx-building icon-vermelho' ></i>
                             <span class="text nav-text">Bloco Vermelho</span>
                         </a>
