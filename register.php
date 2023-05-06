@@ -110,8 +110,18 @@
     </nav>
 
     <section class="home">
-        <form action="login_actionPOST.php" method="post" id="register" name="register">
+        <form action="action_register.php" method="post" id="register" name="register" onsubmit="validacao()">
             <div class="container">
+
+                <div>
+                    <input type="radio" id="user" name="type" value="1" onclick="changetype(1)" checked> Sou Usuário
+                    <input type="radio" id="ger" name="type" value="2" onclick="changetype(2)"> Sou Gerente
+                </div>
+
+                <div id="cnpjdiv" hidden>
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" id="cnpj" placeholder="Insira seu CNPJ">
+                </div>
 
                 <div class="group">
                     <input required="" type="text" class="input" name="nome" id="nome" pattern="[a-zA-Z]*">
@@ -193,6 +203,18 @@
             }
         });
 
+        function changetype(type){
+            var cnpjdiv = document.getElementById("cnpjdiv")
+            var cnpjinput = document.getElementById("cnpj")
+            if (type === 2){
+                cnpjdiv.hidden = false;
+                cnpjinput.setAttribute('required', ''); //adiciona required ao campo de cnpj
+            } else {
+                cnpjdiv.hidden = true;
+                cnpjinput.removeAttribute('required'); //remove o required do campo cnpj
+            }
+        }
+
         cb.addEventListener("click", function (){
             if (pass.type == 'password'){
                 pass.type = 'text';
@@ -235,7 +257,6 @@
         function check() {
             if (document.getElementById('psw').value ==
                 document.getElementById('psw-repeat').value) {
-                console.log("matching");
                 document.getElementById("verify").className = "bx bx-check";
                 document.getElementById("verify").style.color = "green";
                 //document.getElementById('message').innerHTML = 'matching';
@@ -247,6 +268,15 @@
                //document.getElementById('message').innerHTML = 'not matching';
             }
             }
+
+        function validacao(){
+            if (document.getElementById('psw').value ==
+                document.getElementById('psw-repeat').value){
+                    return true
+                } else {
+                    return false
+                }
+        }
     </script>
 </body>
 </html>

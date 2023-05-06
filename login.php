@@ -129,7 +129,7 @@
 
             <div id="cnpjdiv" hidden>
                 <label for="cnpj">CNPJ:</label>
-                <input type="text" id="cnpj" placeholder="Insira seu CNPJ" required>
+                <input type="text" id="cnpj" placeholder="Insira seu CNPJ">
             </div>
             
             <div>
@@ -150,7 +150,7 @@
 
             <button type="submit">Entrar</button>         
             <div class="text-center">
-                <p>Ainda não faz parte dessa comunidade? <a href="register.html">Registre-se</a></p>
+                <p>Ainda não faz parte dessa comunidade? <a href="register.php">Registre-se</a></p>
             </div>
         </form>
     </section>
@@ -194,11 +194,14 @@
         })
   
         function changetype(type){
-            var cnpj = document.getElementById("cnpjdiv")
+            var cnpjdiv = document.getElementById("cnpjdiv")
+            var cnpjinput = document.getElementById("cnpj")
             if (type === 2){
-                cnpj.hidden = false;
+                cnpjdiv.hidden = false;
+                cnpjinput.setAttribute('required', ''); //adiciona required ao campo de cnpj
             } else {
-                cnpj.hidden = true;
+                cnpjdiv.hidden = true;
+                cnpjinput.removeAttribute('required'); //remove o required do campo cnpj
             }
         }
 
