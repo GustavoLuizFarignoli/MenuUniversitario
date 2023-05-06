@@ -36,49 +36,49 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="./index.html">
+                        <a href="./index.php">
                             <i class='bx bx-home-alt icon-home' ></i>
                             <span class="text nav-text">Home</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoAmarelo/blocoAmarelo.html">
+                        <a href="./blocoAmarelo/blocoAmarelo.php">
                             <i class='bx bx-building icon-amarelo' ></i>
                             <span class="text nav-text">Bloco Amarelo</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoAzul/blocoAzul.html">
+                        <a href="./blocoAzul/blocoAzul.php">
                             <i class='bx bx-building icon-azul'></i>
                             <span class="text nav-text">Bloco Azul</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoVerde/blocoVerde.html">
+                        <a href="./blocoVerde/blocoVerde.php">
                             <i class='bx bx-building icon-verde' ></i>
                             <span class="text nav-text">Bloco Verde</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoLaranja/blocoLaranja.html">
+                        <a href="./blocoLaranja/blocoLaranja.php">
                             <i class='bx bx-building icon-laranja' ></i>
                             <span class="text nav-text">Bloco Laranja</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoVermelho/blocoVermelho.html">
+                        <a href="./blocoVermelho/blocoVermelho.php">
                             <i class='bx bx-building icon-vermelho' ></i>
                             <span class="text nav-text">Bloco Vermelho</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoMedicina/blocoMedicina.html">
+                        <a href="./blocoMedicina/blocoMedicina.php">
                             <i class='bx bx-plus-medical icon-medicina' ></i>
                             <span class="text nav-text">Bloco de Medicina</span>
                         </a>
