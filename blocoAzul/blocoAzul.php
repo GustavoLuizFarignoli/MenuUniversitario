@@ -37,49 +37,49 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="../index.html">
+                        <a href="../index.php">
                             <i class='bx bx-home-alt icon-home' ></i>
                             <span class="text nav-text">Home</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="../blocoAmarelo/blocoAmarelo.html">
+                        <a href="../blocoAmarelo/blocoAmarelo.php">
                             <i class='bx bx-building icon-amarelo' ></i>
                             <span class="text nav-text" >Bloco Amarelo</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoAzul.html">
+                        <a href="./blocoAzul.php">
                             <i class='bx bx-building icon-azul'></i>
                             <span class="text nav-text">Bloco Azul</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="../blocoVerde/blocoVerde.html">
+                        <a href="../blocoVerde/blocoVerde.php">
                             <i class='bx bx-building icon-verde' ></i>
                             <span class="text nav-text">Bloco Verde</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="../blocoLaranja/blocoLaranja.html">
+                        <a href="../blocoLaranja/blocoLaranja.php">
                             <i class='bx bx-building icon-laranja' ></i>
                             <span class="text nav-text">Bloco Laranja</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="../blocoVermelho/blocoVermelho.html">
+                        <a href="../blocoVermelho/blocoVermelho.php">
                             <i class='bx bx-building icon-vermelho' ></i>
                             <span class="text nav-text">Bloco Vermelho</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="../blocoMedicina/blocoMedicina.html">
+                        <a href="../blocoMedicina/blocoMedicina.php">
                             <i class='bx bx-plus-medical icon-medicina' ></i>
                             <span class="text nav-text">Bloco de Medicina</span>
                         </a>
@@ -111,19 +111,19 @@
     </nav>
 
     <section class="home">
-        <a class="card" href="estabelecimentos/angra.html" style="text-decoration: none;">
+        <a class="card" href="estabelecimentos/angra.php" style="text-decoration: none;">
             <span class="text nav-text">Angra</span>
         </a>
-        <a class="card" href="estabelecimentos/theHonestBurguer.html" style="text-decoration: none;">
+        <a class="card" href="estabelecimentos/theHonestBurguer.php" style="text-decoration: none;">
             <span class="text nav-text">The Honest Burguer</span>
         </a>
-        <a class="card" href="estabelecimentos/augusta.html" style="text-decoration: none;">
+        <a class="card" href="estabelecimentos/augusta.php" style="text-decoration: none;">
             <span class="text nav-text">Augusta</span>
         </a>
-        <a class="card" href="estabelecimentos/chocoOz.html" style="text-decoration: none;">
+        <a class="card" href="estabelecimentos/chocoOz.php" style="text-decoration: none;">
             <span class="text nav-text">ChocoOz</span>
         </a>
-        <a class="card" href="estabelecimentos/pappone.html" style="text-decoration: none;">
+        <a class="card" href="estabelecimentos/pappone.php" style="text-decoration: none;">
             <span class="text nav-text">Pappone</span>
         </a>
     </section>
