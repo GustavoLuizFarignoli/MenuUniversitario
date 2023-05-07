@@ -5,10 +5,12 @@
     $email = $_POST["email"];
     $senha = $_POST["psw"];
     $tipo = $_POST["type"];
+    $hash = password_hash($password, PASSWORD_BCRYPT);
 
     if ($tipo == 1){
 
-        $sql = "INSERT INTO usuario VALUES('$nome','$email', '$senha', null, '$tipo')";
+
+        $sql = "INSERT INTO usuario VALUES('$nome','$email', '$hash', null, '$tipo')";
 
         if ($conn->query($sql) === TRUE) {
             echo "Insert Succeed!!!";

@@ -110,7 +110,7 @@
     </nav>
 
     <section class="home">
-        <form action="action_register.php" method="post" id="register" name="register" onsubmit="validacao()">
+        <form action="action_register.php" method="post" id="register" name="register" onsubmit="if(validacao()){ return true}else{ return false}">
             <div class="container">
 
                 <div>
@@ -119,9 +119,10 @@
                 </div>
 
                 <div id="cnpjdiv" hidden>
-                    <label for="cnpj">CNPJ:</label>
-                    <input type="text" id="cnpj" placeholder="Insira seu CNPJ">
-                </div>
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" placeholder="00.000.000/0000-00"
+                pattern="^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$">
+            </div>
 
                 <div class="group">
                     <input required="" type="text" class="input" name="nome" id="nome" pattern="[a-zA-Z]*">
@@ -215,6 +216,53 @@
             }
         }
 
+        cnpj.addEventListener("input", ()=> {formatmask(cnpj);});
+        cnpj.addEventListener("focus", ()=> {formatmask(cnpj, "focus");});
+        cnpj.addEventListener("focusout", ()=> {formatmask(cnpj, "focusout")})
+
+        function formatmask(element, event){
+            const mask = element.placeholder.replace(/0/g, "_"),
+                masklen = mask.split("_").length - 1;
+            if (event == "focusout" && element.value.replace(/[^0-9]/g, "").length == 0) {
+                element.value = "";
+                return;
+            }
+            if (event == "focus"){
+                requestAnimationFrame(() => {
+                    element.setSelectionRange(element.value.indexOf("_"), element.value.indexOf("_"));
+                });
+                return;
+            }
+            let position = element.selectionStart,
+                input = element.value.replace(/[^0-9_]/g, ""),
+                relativepos = position - mask.slice(0, position).replace(/[0-9_]/g, "").length,
+                result = "";
+            if (input.length < masklen){
+                if (/[^0-9_]/.test(mask[position-1]) && position-1 >= 0){
+                    position -= 1;
+                }
+                input = input.slice(0, relativepos)
+                    + "_".repeat(masklen - input.length) + input.slice(relativepos);
+            } else if (input.length > masklen){
+                if (/[^0-9_]/.test(mask[position - 1])){
+                    relativepos += 1;
+                    position += 1;
+                }
+                input = input.slice(0, relativepos)
+                    + input.slice(relativepos + input.length - masklen);
+            }
+            for (let m = 0, i = 0; m < mask.length; m++) {
+                if (mask[m] == "_") {
+                    result += input[i] || "_";
+                    i++;
+                } else {
+                    result += mask[m];
+                }
+            }
+            element.value = result;
+            element.selectionEnd = position;
+        }
+
         cb.addEventListener("click", function (){
             if (pass.type == 'password'){
                 pass.type = 'text';
@@ -274,6 +322,7 @@
                 document.getElementById('psw-repeat').value){
                     return true
                 } else {
+                    alert('As senhas não batem, por favor confirme sua senha novamente')
                     return false
                 }
         }
