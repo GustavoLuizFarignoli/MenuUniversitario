@@ -110,7 +110,7 @@
     </nav>
 
     <section class="home">
-        <form action="" method="post">
+        <form action="action_login.php" method="post" id="login" name="login">
 
             <div>
                 <input type="radio" id="user" name="type" value="1" onclick="changetype(1)" checked> Sou Usuário
@@ -119,12 +119,12 @@
 
             <div>
                 <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Insira seu Email" required>
+                <input type="email" name="email" id="email" placeholder="Insira seu Email" required>
             </div>
           
             <div>
                 <label for="password">Senha:</label>
-                <input type="password" id="password" placeholder="Insira sua Senha" required>
+                <input type="password" name="password" id="password" placeholder="Insira sua Senha" required>
             </div>
 
             <div id="cnpjdiv" hidden>

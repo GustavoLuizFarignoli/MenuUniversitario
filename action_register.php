@@ -5,7 +5,7 @@
     $email = $_POST["email"];
     $senha = $_POST["psw"];
     $tipo = $_POST["type"];
-    $hash = password_hash($password, PASSWORD_BCRYPT);
+    $hash = password_hash($senha, PASSWORD_BCRYPT);
 
     if ($tipo == 1){
 
