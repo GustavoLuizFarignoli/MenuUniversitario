@@ -103,9 +103,9 @@
                 </li>
                 <?php
                     if(isset($_SESSION["user"])){
-                        echo '<li class="">' . '<a href="#">' . "<i class='bx bx-log-out icon-sair' >" . '</i>' . '<span class="text nav-text">' . 'Sair</span>' . '</a>' . '</li>';
+                        echo '<li class="">' . '<a href="destruirsession.php">' . "<i class='bx bx-log-out icon-sair' >" . '</i>' . '<span class="text nav-text">' . 'Sair</span>' . '</a>' . '</li>';
                     } else {
-                        echo '<li class="">' . '<a href="#">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
                     } 
                 ?>
             </div>

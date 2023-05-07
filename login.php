@@ -110,7 +110,7 @@
     </nav>
 
     <section class="home">
-        <form action="" method="post">
+        <form action="action_login.php" method="post" id="login" name="login">
 
             <div>
                 <input type="radio" id="user" name="type" value="1" onclick="changetype(1)" checked> Sou Usuário
@@ -119,17 +119,18 @@
 
             <div>
                 <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Insira seu Email" required>
+                <input type="email" name="email" id="email" placeholder="Insira seu Email" required>
             </div>
           
             <div>
                 <label for="password">Senha:</label>
-                <input type="password" id="password" placeholder="Insira sua Senha" required>
+                <input type="password" name="password" id="password" placeholder="Insira sua Senha" required>
             </div>
 
             <div id="cnpjdiv" hidden>
                 <label for="cnpj">CNPJ:</label>
-                <input type="text" id="cnpj" placeholder="Insira seu CNPJ" required>
+                <input type="text" id="cnpj" placeholder="00.000.000/0000-00"
+                pattern="^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$">
             </div>
             
             <div>
@@ -164,6 +165,7 @@
         modeText = body.querySelector(".mode-text");
         const cb = document.querySelector('#showpassbox');
         const passbox = document.querySelector('#password');
+        const cnpj = document.getElementById("cnpj")
 
 
         toggle.addEventListener("click" , () =>{
@@ -194,14 +196,64 @@
         })
   
         function changetype(type){
-            var cnpj = document.getElementById("cnpjdiv")
+            var cnpjdiv = document.getElementById("cnpjdiv")
+            var cnpjinput = document.getElementById("cnpj")
             if (type === 2){
-                cnpj.hidden = false;
+                cnpjdiv.hidden = false;
+                cnpjinput.setAttribute('required', ''); //adiciona required ao campo de cnpj
             } else {
-                cnpj.hidden = true;
+                cnpjdiv.hidden = true;
+                cnpjinput.removeAttribute('required'); //remove o required do campo cnpj
             }
         }
 
+
+        cnpj.addEventListener("input", ()=> {formatmask(cnpj);});
+        cnpj.addEventListener("focus", ()=> {formatmask(cnpj, "focus");});
+        cnpj.addEventListener("focusout", ()=> {formatmask(cnpj, "focusout")})
+
+        function formatmask(element, event){
+            const mask = element.placeholder.replace(/0/g, "_"),
+                masklen = mask.split("_").length - 1;
+            if (event == "focusout" && element.value.replace(/[^0-9]/g, "").length == 0) {
+                element.value = "";
+                return;
+            }
+            if (event == "focus"){
+                requestAnimationFrame(() => {
+                    element.setSelectionRange(element.value.indexOf("_"), element.value.indexOf("_"));
+                });
+                return;
+            }
+            let position = element.selectionStart,
+                input = element.value.replace(/[^0-9_]/g, ""),
+                relativepos = position - mask.slice(0, position).replace(/[0-9_]/g, "").length,
+                result = "";
+            if (input.length < masklen){
+                if (/[^0-9_]/.test(mask[position-1]) && position-1 >= 0){
+                    position -= 1;
+                }
+                input = input.slice(0, relativepos)
+                    + "_".repeat(masklen - input.length) + input.slice(relativepos);
+            } else if (input.length > masklen){
+                if (/[^0-9_]/.test(mask[position - 1])){
+                    relativepos += 1;
+                    position += 1;
+                }
+                input = input.slice(0, relativepos)
+                    + input.slice(relativepos + input.length - masklen);
+            }
+            for (let m = 0, i = 0; m < mask.length; m++) {
+                if (mask[m] == "_") {
+                    result += input[i] || "_";
+                    i++;
+                } else {
+                    result += mask[m];
+                }
+            }
+            element.value = result;
+            element.selectionEnd = position;
+        }
 
     </script>
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Abr-2023 às 21:52
+-- Tempo de geração: 06-Maio-2023 às 15:15
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -94,6 +94,14 @@ CREATE TABLE `tipo_de_usuario` (
   `Nome_tipo` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tipo_de_usuario`
+--
+
+INSERT INTO `tipo_de_usuario` (`id`, `Nome_tipo`) VALUES
+(1, 'Usuário'),
+(2, 'Gerente');
+
 -- --------------------------------------------------------
 
 --
@@ -107,6 +115,13 @@ CREATE TABLE `usuario` (
   `CNPJ` text DEFAULT NULL,
   `fk_Tipo_de_Usuario_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`Nome`, `E_mail`, `Senha`, `CNPJ`, `fk_Tipo_de_Usuario_id`) VALUES
+('Gustavo', 'gustavo.farignoli@gmail.com', 'Gu@@20', NULL, 1);
 
 --
 -- Índices para tabelas despejadas
