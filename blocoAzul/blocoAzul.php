@@ -24,7 +24,6 @@
                     <span class="profession">PUC-PR</span>
                 </div>
             </div>
-
             <i class='bx bx-chevron-right toggle' style="color: white; background-color: #695CFE"></i>
         </header>   
 
@@ -108,24 +107,63 @@
             </div>
         </div>
 
-    </nav>
+    </nav>  
 
     <section class="home">
-        <a class="card" href="estabelecimentos/angra.php" style="text-decoration: none;">
-            <span class="text nav-text">Angra</span>
-        </a>
-        <a class="card" href="estabelecimentos/theHonestBurguer.php" style="text-decoration: none;">
-            <span class="text nav-text">The Honest Burguer</span>
-        </a>
-        <a class="card" href="estabelecimentos/augusta.php" style="text-decoration: none;">
-            <span class="text nav-text">Augusta</span>
-        </a>
-        <a class="card" href="estabelecimentos/chocoOz.php" style="text-decoration: none;">
-            <span class="text nav-text">ChocoOz</span>
-        </a>
-        <a class="card" href="estabelecimentos/pappone.php" style="text-decoration: none;">
-            <span class="text nav-text">Pappone</span>
-        </a>
+        <div style="display: flex; flex-direction:row">
+            <a class="card" href="estabelecimentos/angra.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
+            <div style="padding-top: 20px;">
+                <span class="text nav-text" style="margin:15px">Angra</span>
+                <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
+                    <li>Localização: refeitório do bloco azul</li>
+                    <li>Preço: $$</li>
+                </ul>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction:row-reverse">
+            <a class="card" href="estabelecimentos/theHonestBurguer.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
+            <div style="padding-top: 20px;">
+                <span class="text nav-text" style="margin:15px;">The Honest Burguer</span>
+                <ul style="color: var(--text-color); font-size: 20px; margin: 15px;">
+                    <li>Localização: refeitório do bloco azul</li>
+                    <li>Especializado em hambúrgueres</li>
+                    <li>Preço: $</li>
+                </ul>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction:row">
+            <a class="card" href="estabelecimentos/augusta.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
+            <div style="padding-top: 20px;">
+                <span class="text nav-text" style="margin:15px">Augusta</span>
+                <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
+                    <li>Localização: refeitório do bloco azul</li>
+                    <li>Especializado em pizzas</li>
+                    <li>Preço: $</li>
+                </ul>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction:row-reverse">
+            <a class="card" href="estabelecimentos/chocoOz.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
+            <div style="padding-top: 20px;">
+                <span class="text nav-text" style="margin:15px">ChocoOz</span>
+                <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
+                    <li>Localização: refeitório do bloco azul</li>
+                    <li>Especializado em cafés</li>
+                    <li>Preço: $$$</li>
+                </ul>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction:row">
+            <a class="card" href="estabelecimentos/pappone.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
+            <div style="padding-top: 20px;">
+                <span class="text nav-text" style="margin:15px">Pappone</span>
+                <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
+                    <li>Localização: refeitório do bloco azul</li>
+                    <li>Self-Service</li>
+                    <li>Preço: $$</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
 <!-- ------------------------------------------------------------------------------------------------------------- -->
