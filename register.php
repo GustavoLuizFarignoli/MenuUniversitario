@@ -98,27 +98,28 @@
                         <span class="switch"></span>
                     </div>
                 </li>
-                <li class="">
-                    <a href="./login.php">
-                        <i class='bx bx-user icon-login' ></i>
-                        <span class="text nav-text">Login</span>
-                    </a>
-                </li>
+                <?php
+                    if(isset($_SESSION["user"])){
+                        echo '<li class="">' . '<a href="destruirsession.php">' . "<i class='bx bx-log-out icon-sair' >" . '</i>' . '<span class="text nav-text">' . 'Sair</span>' . '</a>' . '</li>';
+                    } else {
+                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                    } 
+                ?>
             </div>
         </div>
 
     </nav>
 
-    <section class="home">
+    <section class="geral">
         <form action="action_register.php" method="post" id="register" name="register" onsubmit="if(validacao()){ return true}else{ return false}">
             <div class="container">
 
-                <div>
-                    <input type="radio" id="user" name="type" value="1" onclick="changetype(1)" checked> Sou Usuário
-                    <input type="radio" id="ger" name="type" value="2" onclick="changetype(2)"> Sou Gerente
+                <div class="group">
+                    <input type="radio" id="user" name="type" value="1" onclick="changetype(1)" checked> Usuário
+                    <input type="radio" id="ger" name="type" value="2" onclick="changetype(2)"> Gerente 
                 </div>
 
-                <div id="cnpjdiv" hidden>
+                <div id="cnpjdiv" hidden>   
                 <label for="cnpj">CNPJ:</label>
                 <input type="text" id="cnpj" placeholder="00.000.000/0000-00"
                 pattern="^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$">
@@ -137,25 +138,25 @@
                     <span class="bar"></span>
                     <label><b>Email</b></label>
                 </div>
-
-                <div style="display: flex; flex-direction: row; align-self: center;">
-                    <div class="group">
-                        <input required="" type="password" class="input" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,8}"onkeyup="check();checkreg();">
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label><b>Senha</b></label>
-                    </div>
+                    
+            <div class="container">
+                <div class="group">
+                    <input required="" type="password" class="input" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,8}"onkeyup="check();checkreg();">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label><b>Senha</b></label>
+                </div>
                     <i class="bx bx-x" id="verify-reg" style="color: rgb(173, 21, 21); visibility: hidden;"></i>
                 </div>
-                <div style="display: flex; flex-direction: row; align-self: center;">
-                    <div class="group">
-                        <input required="" type="password" class="input" name="psw-repeat" id="psw-repeat" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,8}" onkeyup="check();checkreg()">
-                        <span class="highlight"></span>
+                
+                <div class="group">
+                    <input required="" type="password" class="input" name="psw-repeat" id="psw-repeat" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,8}" onkeyup="check();checkreg()">
+                    <span class="highlight"></span>
                         <span class="bar"></span>
                         <label><b>Confirmar senha</b></label>
-                    </div>
-                    <i class="bx bx-check" id="verify" style="color: rgb(21, 173, 21); visibility: hidden;"></i>
                 </div>
+                    <i class="bx bx-check" id="verify" style="color: rgb(21, 173, 21); visibility: hidden;"></i>
+                
 
                 <div class="group">
                     <input type="checkbox" value="" id="showpassbox">
@@ -171,6 +172,7 @@
               <p>Já possui uma conta? <a href="login.php">Entrar</a>.</p>
             </div>
           </form>
+          </div>
     </section>
 
     <script>

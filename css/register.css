@@ -1,8 +1,16 @@
+/* .geral{
+    text-align: center;
+    display: flex;
+    border: 1px solid #515151;
+}*/
+
 .container{
-    margin-top: 5%;
+    margin-top: 1.5%;
     display: flex;
     flex-direction: column;
-}
+    text-align: center;
+    font-size: 16px;;
+}   
 
 .signin{
     display: flex;
@@ -20,17 +28,20 @@
 /* Conjunto de css para estilo dos campos de imput do registro*/
 .group {
     position: relative;
-    margin: 1.2%;
+    margin: 1.5%;
     align-self: center;
+    padding: 10px 10px 10px 5px;
+    color: #707070;
+    font-size: 16px
    }
-   
+
    .input {
     font-size: 16px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 200px;
     border: none;
-    border-bottom: 1px solid #515151;
+    border-bottom: 1px solid #707070;
     background: transparent;
    }
    
@@ -39,7 +50,7 @@
    }
    
    label {
-    color: #999;
+    color:#707070;
     font-size: 18px;
     font-weight: normal;
     position: absolute;
@@ -54,7 +65,7 @@
    .input:focus ~ label, .input:valid ~ label {
     top: -20px;
     font-size: 14px;
-    color: #5264AE;
+    color: #695CFE;
    }
    
    .bar {
@@ -69,7 +80,7 @@
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: #5264AE;
+    background: #695CFE;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -103,7 +114,7 @@
    
    @keyframes inputHighlighter {
     from {
-     background: #5264AE;
+     background: #695CFE;
     }
    
     to {
