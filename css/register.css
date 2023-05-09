@@ -1,15 +1,11 @@
-/* .geral{
-    text-align: center;
-    display: flex;
-    border: 1px solid #515151;
-}*/
 
 .container{
-    margin-top: 1.5%;
+    margin-top: 1%;
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-size: 16px;;
+    font-size: 16px;
+    width: 200px;
 }   
 
 .signin{
@@ -25,10 +21,10 @@
 }
 
 
-/* Conjunto de css para estilo dos campos de imput do registro*/
+
 .group {
     position: relative;
-    margin: 1.5%;
+    margin: 1%;
     align-self: center;
     padding: 10px 10px 10px 5px;
     color: #707070;
@@ -36,13 +32,14 @@
    }
 
    .input {
-    font-size: 16px;
+    font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 200px;
     border: none;
-    border-bottom: 1px solid #707070;
+    border-bottom: 1px solid var(--primary-color);
     background: transparent;
+    color: #707070;
    }
    
    .input:focus {
@@ -123,7 +120,7 @@
     }
    }
    
-   /* conjuntos de códigos css para o botão de submit */
+
 .registerbtn {
     align-self: center;
     width: 200px;
@@ -149,3 +146,4 @@
     transform: translateY(2px) translateX(1px);
     box-shadow: 0 0 0 0 var(--border-color);
 };
+

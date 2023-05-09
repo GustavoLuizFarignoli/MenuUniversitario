@@ -112,21 +112,25 @@
 
     <section class="geral">
         <form action="action_register.php" method="post" id="register" name="register" onsubmit="if(validacao()){ return true}else{ return false}">
-            <div class="container">
+        <div class="container">    
 
                 <div class="group">
-                    <input type="radio" id="user" name="type" value="1" onclick="changetype(1)" checked> Usuário
-                    <input type="radio" id="ger" name="type" value="2" onclick="changetype(2)"> Gerente 
+                        <input type="radio" id="user" name="type" value="1" onclick="changetype(1)" checked>
+                        <b>Usuário</b>
+                        <input type="radio" id="ger" name="type" value="2" onclick="changetype(2)">                        
+                        <b>Gerente</b>
+                </div>   
+                
+                <div class="group">
+                    <div id="cnpjdiv" hidden>   
+                        <input class="input" type="text" id="cnpj" placeholder="00.000.000/0000-00"pattern="^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label><b>CNPJ</b></label>
+                    </div>
                 </div>
-
-                <div id="cnpjdiv" hidden>   
-                <label for="cnpj">CNPJ:</label>
-                <input type="text" id="cnpj" placeholder="00.000.000/0000-00"
-                pattern="^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$">
-            </div>
-
                 <div class="group">
-                    <input required="" type="text" class="input" name="nome" id="nome" pattern="[a-zA-Z]*">
+                    <input required="" type="text" class="input" name="nome" id="nome" pattern="[a-zA-Z ]*">
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label><b>Nome completo</b></label>
@@ -139,30 +143,29 @@
                     <label><b>Email</b></label>
                 </div>
                     
-            <div class="container">
+           
                 <div class="group">
-                    <input required="" type="password" class="input" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,8}"onkeyup="check();checkreg();">
+                    <input required="" type="password" class="input" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}"onkeyup="check();checkreg();">
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label><b>Senha</b></label>
                 </div>
                     <i class="bx bx-x" id="verify-reg" style="color: rgb(173, 21, 21); visibility: hidden;"></i>
-                </div>
+              
                 
                 <div class="group">
-                    <input required="" type="password" class="input" name="psw-repeat" id="psw-repeat" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,8}" onkeyup="check();checkreg()">
+                    <input required="" type="password" class="input" name="psw-repeat" id="psw-repeat" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}" onkeyup="check();checkreg()">
                     <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label><b>Confirmar senha</b></label>
+                    <span class="bar"></span>
+                    <label><b>Confirmar senha</b></label>
                 </div>
                     <i class="bx bx-check" id="verify" style="color: rgb(21, 173, 21); visibility: hidden;"></i>
                 
-
                 <div class="group">
-                    <input type="checkbox" value="" id="showpassbox">
+                    <input type="checkbox" value="" id="showpassbox"> 
                     <span class="highlight"></span>
                     <span class="bar"></span>
-                    <label><b>Visualizar senha</b></label>
+                    <label> <b>Visualizar senha</b> </label>
                 </div>
           
                 <button type="submit" class="registerbtn" >Registre-se</button>
@@ -293,7 +296,7 @@
         })
 
         function checkreg() {
-            if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,8}$/.test(document.getElementById("psw").value)) {
+            if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/.test(document.getElementById("psw").value)) {
                 console.log("reg valid")
                 document.getElementById("verify-reg").className = "bx bx-check";
                 document.getElementById("verify-reg").style.color = "green";
