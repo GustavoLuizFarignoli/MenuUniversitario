@@ -126,7 +126,7 @@
             </div>
 
                 <div class="group">
-                    <input required="" type="text" class="input" name="nome" id="nome" pattern="[a-zA-Z]*">
+                    <input required="" type="text" class="input" name="nome" id="nome" pattern="[a-zA-Z ]*">
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label><b>Nome completo</b></label>
@@ -141,7 +141,7 @@
                     
             <div class="container">
                 <div class="group">
-                    <input required="" type="password" class="input" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,8}"onkeyup="check();checkreg();">
+                    <input required="" type="password" class="input" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}"onkeyup="check();checkreg();">
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label><b>Senha</b></label>
@@ -150,7 +150,7 @@
                 </div>
                 
                 <div class="group">
-                    <input required="" type="password" class="input" name="psw-repeat" id="psw-repeat" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,8}" onkeyup="check();checkreg()">
+                    <input required="" type="password" class="input" name="psw-repeat" id="psw-repeat" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}" onkeyup="check();checkreg()">
                     <span class="highlight"></span>
                         <span class="bar"></span>
                         <label><b>Confirmar senha</b></label>
@@ -293,7 +293,7 @@
         })
 
         function checkreg() {
-            if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,8}$/.test(document.getElementById("psw").value)) {
+            if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/.test(document.getElementById("psw").value)) {
                 console.log("reg valid")
                 document.getElementById("verify-reg").className = "bx bx-check";
                 document.getElementById("verify-reg").style.color = "green";

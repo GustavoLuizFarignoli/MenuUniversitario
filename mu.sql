@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Maio-2023 às 15:33
+-- Tempo de geração: 09-Maio-2023 às 20:44
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bloco` (
-  `Nome` text DEFAULT NULL,
+  `Nome` text NOT NULL,
   `Numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -56,7 +56,7 @@ INSERT INTO `bloco` (`Nome`, `Numero`) VALUES
 
 CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
-  `Nome_categoria` text DEFAULT NULL
+  `Nome_categoria` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -75,11 +75,11 @@ INSERT INTO `categoria` (`id_categoria`, `Nome_categoria`) VALUES
 --
 
 CREATE TABLE `estabelecimento` (
-  `Nome` text DEFAULT NULL,
-  `Cnpj` text DEFAULT NULL,
+  `Nome` text NOT NULL,
+  `Cnpj` text NOT NULL,
   `id` int(11) NOT NULL,
-  `Imagem` text DEFAULT NULL,
-  `fk_Bloco_Numero` int(11) DEFAULT NULL
+  `Imagem` blob NOT NULL,
+  `fk_Bloco_Numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -87,13 +87,13 @@ CREATE TABLE `estabelecimento` (
 --
 
 INSERT INTO `estabelecimento` (`Nome`, `Cnpj`, `id`, `Imagem`, `fk_Bloco_Numero`) VALUES
-('Angra', NULL, 1, NULL, 2),
-('Augusta', NULL, 2, NULL, 2),
-('ChocoOZ', NULL, 3, NULL, 2),
-('Pappone', NULL, 4, NULL, 2),
-('The Honest Burguer', NULL, 5, NULL, 2),
-('Tropical Banana', NULL, 6, NULL, 2),
-('Guana Hari', NULL, 7, NULL, 2);
+('Angra', '', 1, '', 2),
+('Augusta', '', 2, '', 2),
+('ChocoOZ', '', 3, '', 2),
+('Pappone', '', 4, '', 2),
+('The Honest Burguer', '', 5, '', 2),
+('Tropical Banana', '', 6, '', 2),
+('Guana Hari', '', 7, '', 2);
 
 -- --------------------------------------------------------
 
@@ -103,10 +103,10 @@ INSERT INTO `estabelecimento` (`Nome`, `Cnpj`, `id`, `Imagem`, `fk_Bloco_Numero`
 
 CREATE TABLE `produto` (
   `id` int(11) NOT NULL,
-  `Nome` text DEFAULT NULL,
-  `Preco` double DEFAULT NULL,
+  `Nome` text NOT NULL,
+  `Preco` double NOT NULL,
   `Descrição` text DEFAULT NULL,
-  `fk_Estabelecimento_id` int(11) DEFAULT NULL,
+  `fk_Estabelecimento_id` int(11) NOT NULL,
   `fk_Categoria_id_categoria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -156,9 +156,9 @@ INSERT INTO `produto` (`id`, `Nome`, `Preco`, `Descrição`, `fk_Estabelecimento
 
 CREATE TABLE `review` (
   `id` int(11) NOT NULL,
-  `Texto` text DEFAULT NULL,
-  `fk_Usuario_E_mail` varchar(200) DEFAULT NULL,
-  `fk_Estabelecimento_id` int(11) DEFAULT NULL
+  `Texto` text NOT NULL,
+  `fk_Usuario_E_mail` varchar(200) NOT NULL,
+  `fk_Estabelecimento_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -169,7 +169,7 @@ CREATE TABLE `review` (
 
 CREATE TABLE `tipo_de_usuario` (
   `id` int(11) NOT NULL,
-  `Nome_tipo` text DEFAULT NULL
+  `Nome_tipo` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -188,11 +188,11 @@ INSERT INTO `tipo_de_usuario` (`id`, `Nome_tipo`) VALUES
 --
 
 CREATE TABLE `usuario` (
-  `Nome` text DEFAULT NULL,
+  `Nome` text NOT NULL,
   `E_mail` varchar(200) NOT NULL,
-  `Senha` text DEFAULT NULL,
+  `Senha` text NOT NULL,
   `CNPJ` text DEFAULT NULL,
-  `fk_Tipo_de_Usuario_id` int(11) DEFAULT NULL
+  `fk_Tipo_de_Usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
