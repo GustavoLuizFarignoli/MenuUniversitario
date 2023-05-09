@@ -17,9 +17,9 @@
                         session_start();
                         $_SESSION["user"] = $email;
                     }
-                    header("Location: ./index.php");
+                    header("Location: index.php");
                 } else {
-                    header("Location: ./register.php"); // se não deu certo manda para o registro
+                    header("Location: register.php"); // se não deu certo manda para o registro
                 }
             }
         }

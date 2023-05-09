@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <?php
         session_start();
+        if(isset($_SESSION["user"])){
+
+            include('connection.php');
+
+            $email = $_SESSION["user"];
+
+            $sql = "SELECT Nome, fk_Tipo_de_Usuario_id  FROM usuario WHERE E_mail = '$email'";
+            $result = $conn->query($sql);
+        
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()){
+                    $nome = $row['Nome'];
+                    $tipo = $row['fk_Tipo_de_Usuario_id'];
+                }
+            }
+
+            if ($tipo == 2){
+                header('Location: paginadogerente.php'); // essa página ainda precisa ser implementada
+            }
+
+            if ($tipo == 3){
+                header('Location: paginadoadm.php'); // essa página ainda precisa ser implementada
+            }
+
+        } else {
+            header('Location: paginadousuario.php');
+        }
     ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bloco.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/bloco.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <title>Menu Universitário</title>
+    <title><?php echo $nome . " - Menu Universitário"; ?></title>
     <link rel="icon" type="image/x-icon" href="./imagens/u.png">
 </head>
 <body>
@@ -39,49 +66,49 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="index.php">
+                        <a href="./index.php">
                             <i class='bx bx-home-alt icon-home' ></i>
                             <span class="text nav-text">Home</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoAmarelo.php">
+                        <a href="blocoAmarelo/blocoAmarelo.php">
                             <i class='bx bx-building icon-amarelo' ></i>
                             <span class="text nav-text" >Bloco Amarelo</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoAzul.php">
+                        <a href="blocoAzul/blocoAzul.php">
                             <i class='bx bx-building icon-azul'></i>
                             <span class="text nav-text">Bloco Azul</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoVerde.php">
+                        <a href="blocoVerde/blocoVerde.php">
                             <i class='bx bx-building icon-verde' ></i>
                             <span class="text nav-text">Bloco Verde</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoLaranja.php">
+                        <a href="blocoLaranja/blocoLaranja.php">
                             <i class='bx bx-building icon-laranja' ></i>
                             <span class="text nav-text">Bloco Laranja</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoVermelho.php">
+                        <a href="blocoVermelho/blocoVermelho.php">
                             <i class='bx bx-building icon-vermelho' ></i>
                             <span class="text nav-text">Bloco Vermelho</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoMedicina.php">
+                        <a href="blocoMedicina/blocoMedicina.php">
                             <i class='bx bx-plus-medical icon-medicina' ></i>
                             <span class="text nav-text">Bloco de Medicina</span>
                         </a>
@@ -103,9 +130,9 @@
                 </li>
                 <?php
                     if(isset($_SESSION["user"])){
-                        echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                        echo '<li class="">' . '<a href="destruirsession.php">' . "<i class='bx bx-log-out icon-sair' >" . '</i>' . '<span class="text nav-text">' . 'Sair</span>' . '</a>' . '</li>';
                     } else {
-                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                        echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
                     } 
                 ?>
             </div>
@@ -114,7 +141,10 @@
     </nav>
 
     <section class="home">
-        <div class="text">Bem Vindo ao Menu Universitário</div>
+        <div class="text"><?php echo "Bem vindo " . $nome . " ;D"; ?></div> <!-- Tag php dentro da div pega o nome do usuário e escreve como texto -->
+        <div class="text"><?php echo "E-mail:  " . $email; ?></div> <!-- Tag php dentro da div pega o nome do usuário e escreve como texto -->
+        <button>Editar Senha</button>
+        <button style="background-color:red" onclick="deletar()">Excluir Conta</button>
     </section>
 
     <script>
@@ -144,6 +174,13 @@
                 
             }
         });
+
+        function deletar(){
+            if(confirm("Deseja excluir sua conta ? Essa ação é irreversivel")){
+                alert("Conta excluida!")
+                window.location.href = "action_delete.php" //envia para código que fara exclusão da conta
+            }
+        }
     </script>
 
 </body>
