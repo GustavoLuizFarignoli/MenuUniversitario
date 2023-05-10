@@ -9,7 +9,7 @@
         $sql = "DELETE FROM usuario WHERE E_mail = '$email'";
 
         if ($conn->query($sql) === TRUE) {
-            header("Location: index.php"); // deletado com sucesso
+            header("Location: destruirsession.php"); // deletado com sucesso
         }
         else {
             header("Location: paginadousuario.php"); // não foi possivel deletar conta

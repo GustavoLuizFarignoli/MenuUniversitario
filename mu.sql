@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Maio-2023 às 20:44
+-- Tempo de geração: 10-Maio-2023 às 20:51
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -76,6 +76,7 @@ INSERT INTO `categoria` (`id_categoria`, `Nome_categoria`) VALUES
 
 CREATE TABLE `estabelecimento` (
   `Nome` text NOT NULL,
+  `Descricao` text DEFAULT NULL,
   `Cnpj` text NOT NULL,
   `id` int(11) NOT NULL,
   `Imagem` blob NOT NULL,
@@ -86,14 +87,14 @@ CREATE TABLE `estabelecimento` (
 -- Extraindo dados da tabela `estabelecimento`
 --
 
-INSERT INTO `estabelecimento` (`Nome`, `Cnpj`, `id`, `Imagem`, `fk_Bloco_Numero`) VALUES
-('Angra', '', 1, '', 2),
-('Augusta', '', 2, '', 2),
-('ChocoOZ', '', 3, '', 2),
-('Pappone', '', 4, '', 2),
-('The Honest Burguer', '', 5, '', 2),
-('Tropical Banana', '', 6, '', 2),
-('Guana Hari', '', 7, '', 2);
+INSERT INTO `estabelecimento` (`Nome`, `Descricao`, `Cnpj`, `id`, `Imagem`, `fk_Bloco_Numero`) VALUES
+('Angra', '- Localização: refeitório do bloco azul\n- Especialidade: Pratos Feitos', '33.044.845/0001-38', 1, '', 2),
+('Augusta', '- Localização: refeitório do bloco azul\n- Especialidade: Pizzas', '27.572.294/0001-82', 2, '', 2),
+('ChocoOZ', '- Localização: refeitório do bloco azul\n- Especialidade: Café', '36.545.061/0001-81', 3, '', 2),
+('Pappone', '- Localização: refeitório do bloco azul\n- Especialidade: Self-Service', '58.511.400/0001-41', 4, '', 2),
+('The Honest Burguer', '- Localização: refeitório do bloco azul\n- Especialidade: Hamburger', '62.962.513/0001-30', 5, '', 2),
+('Tropical Banana', '- Localização: refeitório do bloco azul\n- Especialidade: Comida Saudável e Sucos', '97.465.769/0012-70', 6, '', 2),
+('Guana Hari', '- Localização: refeitório do bloco azul\n- Especialidade: Pasteis', '08.504.600/0001-07', 7, '', 2);
 
 -- --------------------------------------------------------
 
@@ -200,7 +201,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`Nome`, `E_mail`, `Senha`, `CNPJ`, `fk_Tipo_de_Usuario_id`) VALUES
-('Gustavo', 'gustavol.educ@gmail.com', '$2y$10$VHo3TxPGN7OlOO7VwJaJse58ygal/bdY8iUG2kBn8hBH6z1.jI3LS', NULL, 1);
+('Gustavo', 'gustavolf.educ@gmail.com', '$2y$10$Wp0uzd2ERAgjx87t9GD3H.c4ASDv9lMb66kOJSPY3CD9SeZkcYVJu', NULL, 1);
 
 --
 -- Índices para tabelas despejadas
