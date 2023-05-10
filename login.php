@@ -207,7 +207,7 @@
         cnpj.addEventListener("focusout", ()=> {formatmask(cnpj, "focusout")})
 
         function formatmask(element, event){
-            const mask = element.placeholder.replace(/0/g, "_"),
+            const mask = "__.___.___/____-__",
                 masklen = mask.split("_").length - 1;
             if (event == "focusout" && element.value.replace(/[^0-9]/g, "").length == 0) {
                 element.value = "";
