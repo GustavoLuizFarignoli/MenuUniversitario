@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>Menu Universitário</title>
     <link rel="icon" type="image/x-icon" href="imagens/u.png">
@@ -43,42 +44,42 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoAmarelo/blocoAmarelo.php">
+                        <a href="blocoAmarelo.php">
                             <i class='bx bx-building icon-amarelo' ></i>
                             <span class="text nav-text">Bloco Amarelo</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoAzul/blocoAzul.php">
+                        <a href="blocoAzul.php">
                             <i class='bx bx-building icon-azul'></i>
                             <span class="text nav-text">Bloco Azul</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoVerde/blocoVerde.php">
+                        <a href="blocoVerde.php">
                             <i class='bx bx-building icon-verde' ></i>
                             <span class="text nav-text">Bloco Verde</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoLaranja/blocoLaranja.php">
+                        <a href="blocoLaranja.php">
                             <i class='bx bx-building icon-laranja' ></i>
                             <span class="text nav-text">Bloco Laranja</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoVermelho/blocoVermelho.php">
+                        <a href="blocoVermelho.php">
                             <i class='bx bx-building icon-vermelho' ></i>
                             <span class="text nav-text">Bloco Vermelho</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./blocoMedicina/blocoMedicina.php">
+                        <a href="blocoMedicina.php">
                             <i class='bx bx-plus-medical icon-medicina' ></i>
                             <span class="text nav-text">Bloco de Medicina</span>
                         </a>
@@ -111,48 +112,41 @@
 
     <section class="home">
         <form action="action_login.php" method="post" id="login" name="login">
-
-            <div>
-                <input type="radio" id="user" name="type" value="1" onclick="changetype(1)" checked> Sou Usuário
-                <input type="radio" id="ger" name="type" value="2" onclick="changetype(2)"> Sou Gerente
+        <div class="geral">
+            <div class="card">
+                    <div class="grupo">
+                        <input type="radio" id="user" name="type" value="1" onclick="changetype(1)" checked> Cliente
+                        <input type="radio" id="ger" name="type" value="2" onclick="changetype(2)"> Gerente
+                    </div>
+                    <div class="grupo">
+                        <input class="input" type="email" name="email" id="email" placeholder="EMAIL" required>
+                    </div>
+                    <div class="grupo">
+                        <input class="input" type="password" name="password" id="password" placeholder="SENHA" required>
+                    </div>
+                    <div id="cnpjdiv" hidden class="grupo">
+                        <input class="input" type="text" id="cnpj" placeholder="CNPJ"
+                        pattern="^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$">
+                    </div>
+                    <div class="grupo">
+                        <input type="checkbox" value="" id="showpassbox">
+                        <label for="showpassbox"> Visualizar senha </label>
+                    </div>
+                    <!--
+                    <div>
+                        <input type="checkbox" value="" id="remeberbox" checked>
+                        <label for="remeberbox"> Lembrar de mim! </label>
+                    </div>
+                    <div>
+                        <a href="#!">Esqueceu sua senha?</a>
+                    </div>
+                    -->
+                    <button type="submit" class="grupo">Entrar</button>
+                    <div class="text-center">
+                        <p>Ainda não faz parte dessa comunidade? <a href="register.php">Registre-se</a></p>
+                    </div>
             </div>
-
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" placeholder="Insira seu Email" required>
-            </div>
-          
-            <div>
-                <label for="password">Senha:</label>
-                <input type="password" name="password" id="password" placeholder="Insira sua Senha" required>
-            </div>
-
-            <div id="cnpjdiv" hidden>
-                <label for="cnpj">CNPJ:</label>
-                <input type="text" id="cnpj" placeholder="00.000.000/0000-00"
-                pattern="^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$">
-            </div>
-            
-            <div>
-                <input type="checkbox" value="" id="showpassbox">
-                <label for="showpassbox"> Visualizar senha </label>
-            </div>
-
-            <!--
-            <div>
-                <input type="checkbox" value="" id="remeberbox" checked>
-                <label for="remeberbox"> Lembrar de mim! </label>
-            </div>
-          
-            <div>
-                <a href="#!">Esqueceu sua senha?</a>
-            </div>
-            -->
-
-            <button type="submit">Entrar</button>         
-            <div class="text-center">
-                <p>Ainda não faz parte dessa comunidade? <a href="register.php">Registre-se</a></p>
-            </div>
+        </div>
         </form>
     </section>
 
