@@ -17,13 +17,22 @@
                         session_start();
                         $_SESSION["user"] = $email;
                     }
-                    header("Location: index.php");
+                    $message = "Login Realizado com Sucesso, Seja Bem-vindo";
+                    echo "<script type='text/javascript'>alert('$message');</script>";
+                    echo "<script type='text/javascript'>window.location.href = 'paginadousuario.php';</script>";
+                    //header("Location: index.php");
                 } else {
-                    header("Location: register.php"); // se não deu certo manda para o registro
+                    $message = "A senha inserida está incorreta, por-favor tente novamente";
+                    echo "<script type='text/javascript'>alert('$message');</script>";
+                    echo "<script type='text/javascript'>window.location.href = 'login.php';</script>";
+                    //header("Location: login.php"); // falta mandar via get que a senha está incorreta
                 }
             }
         }
-       
+        $message = "Nenhum cadastro encontrado, por favor registre-se";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        echo "<script type='text/javascript'>window.location.href = 'register.php';</script>";
+        // header("Location: login.php"); // mandar via get que o e-mail é inválido
     }
 
 
