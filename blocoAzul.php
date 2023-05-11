@@ -112,13 +112,14 @@
     </nav>  
 
     <section class="home">
-        <div style="display: flex; flex-direction:row">
+        <div style="display: flex; flex-direction:row;">
             <a class="card" href="estabelecimentos/angra.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
             <div style="padding-top: 20px;">
                 <span class="text nav-text" style="margin:15px">Angra</span>
                 <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
                     <li>Localização: refeitório do bloco azul</li>
-                    <li>Preço: $$</li>
+                    <li>Horário de atendimento: Segunda a sexta-feira das 7 às 21h - Sábado das 7:30 às 15h</li>
+                    <li>Cardápio: Pratos prontos servidos durante o dia todo, lanches, salgados, doces e bebidas diversas.</li>
                 </ul>
             </div>
         </div>
