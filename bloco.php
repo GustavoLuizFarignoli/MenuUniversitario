@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,42 +43,42 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoAmarelo.php">
+                        <a href="bloco.php?id=1">
                             <i class='bx bx-building icon-amarelo' ></i>
                             <span class="text nav-text" >Bloco Amarelo</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoAzul.php">
+                        <a href="bloco.php?id=2">
                             <i class='bx bx-building icon-azul'></i>
                             <span class="text nav-text">Bloco Azul</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoVerde.php">
+                        <a href="bloco.php?id=3">
                             <i class='bx bx-building icon-verde' ></i>
                             <span class="text nav-text">Bloco Verde</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoLaranja.php">
+                        <a href="bloco.php?id=4">
                             <i class='bx bx-building icon-laranja' ></i>
                             <span class="text nav-text">Bloco Laranja</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoVermelho.php">
+                        <a href="bloco.php?id=5">
                             <i class='bx bx-building icon-vermelho' ></i>
                             <span class="text nav-text">Bloco Vermelho</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoMedicina.php">
+                        <a href="bloco.php?id=6">
                             <i class='bx bx-plus-medical icon-medicina' ></i>
                             <span class="text nav-text">Bloco de Medicina</span>
                         </a>
@@ -101,9 +100,9 @@
                 </li>
                 <?php
                     if(isset($_SESSION["user"])){
-                        echo '<li class="">' . '<a href="destruirsession.php">' . "<i class='bx bx-log-out icon-sair' >" . '</i>' . '<span class="text nav-text">' . 'Sair</span>' . '</a>' . '</li>';
+                        echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
                     } else {
-                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
                     } 
                 ?>
             </div>
@@ -112,64 +111,69 @@
     </nav>  
 
     <section class="home">
-        <div style="display: flex; flex-direction:row">
-            <a class="card" href="estabelecimentos/angra.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
-            <div style="padding-top: 20px;">
-                <span class="text nav-text" style="margin:15px">Angra</span>
-                <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
-                    <li>Localização: refeitório do bloco azul</li>
-                    <li>Preço: $$</li>
-                </ul>
-            </div>
-        </div>
-        <div style="display: flex; flex-direction:row-reverse">
-            <a class="card" href="estabelecimentos/theHonestBurguer.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
-            <div style="padding-top: 20px;">
-                <span class="text nav-text" style="margin:15px;">The Honest Burguer</span>
-                <ul style="color: var(--text-color); font-size: 20px; margin: 15px;">
-                    <li>Localização: refeitório do bloco azul</li>
-                    <li>Especializado em hambúrgueres</li>
-                    <li>Preço: $</li>
-                </ul>
-            </div>
-        </div>
-        <div style="display: flex; flex-direction:row">
-            <a class="card" href="estabelecimentos/augusta.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
-            <div style="padding-top: 20px;">
-                <span class="text nav-text" style="margin:15px">Augusta</span>
-                <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
-                    <li>Localização: refeitório do bloco azul</li>
-                    <li>Especializado em pizzas</li>
-                    <li>Preço: $</li>
-                </ul>
-            </div>
-        </div>
-        <div style="display: flex; flex-direction:row-reverse">
-            <a class="card" href="estabelecimentos/chocoOz.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
-            <div style="padding-top: 20px;">
-                <span class="text nav-text" style="margin:15px">ChocoOz</span>
-                <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
-                    <li>Localização: refeitório do bloco azul</li>
-                    <li>Especializado em cafés</li>
-                    <li>Preço: $$$</li>
-                </ul>
-            </div>
-        </div>
-        <div style="display: flex; flex-direction:row">
-            <a class="card" href="estabelecimentos/pappone.php" style="text-decoration: none; background: url('../imagens/modelo.png')"></a>
-            <div style="padding-top: 20px;">
-                <span class="text nav-text" style="margin:15px">Pappone</span>
-                <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
-                    <li>Localização: refeitório do bloco azul</li>
-                    <li>Self-Service</li>
-                    <li>Preço: $$</li>
-                </ul>
-            </div>
-        </div>
+        <?php
+
+        include('connection.php');
+
+        if(isset($_GET['id'])){
+            
+            $id = $_GET['id'];
+
+            $sql = "SELECT * FROM estabelecimento WHERE fk_Bloco_Numero = '$id'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                $side = 0;
+                while ($row = $result->fetch_assoc()){
+
+                    $array = explode("- ",$row['Descricao']);
+
+                    if(($side % 2) == 0){
+                        # src="data:image/jpeg;base64,' . base64_encode($row['Imagem']) .' "
+                        echo '
+                        <div style="display: flex; flex-direction:row">
+                            <a href="estabelecimentos/theHonestBurguer.php"><img class="ibagem" src="getImage.php?id=' . $row['id']  .'"></a>
+                            <div style="padding-top: 20px;">
+                                <span class="text nav-text" style="margin:15px">'. $row['Nome'] . '</span>
+                                    <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
+                                        <li>' . $array[1] . '</li>
+                                        <li>' . $array[2] . '</li>
+                                        <li>' . $array[3] . '</li>
+                                    </ul>
+                            </div>
+                        </div>';
+                    } else {
+                        echo '
+                        <div style="display: flex; flex-direction:row-reverse">
+                            <a href="estabelecimentos/theHonestBurguer.php"><img class="ibagem" src="getImage.php?id=' . $row['id']  .'"></a>
+                            <div style="padding-top: 20px;">
+                                <span class="text nav-text" style="margin:15px">'. $row['Nome'] . '</span>
+                                    <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
+                                        <li>' . $array[1] . '</li>
+                                        <li>' . $array[2] . '</li>
+                                        <li>' . $array[3] . '</li>
+                                    </ul>
+                            </div>
+                        </div>';
+                    }
+
+                    $side += 1;
+                }
+            } else {
+                $message = "Não foi possível encontrar o bloco, tente novamente mais tarde";
+                echo "<script type='text/javascript'>alert('$message');</script>";
+                echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
+            }
+
+        } else {
+            $message = "Não foi possível encontrar o bloco, tente novamente mais tarde";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
+        }
+        ?>
     </section>
 
-<!-- ------------------------------------------------------------------------------------------------------------- -->
-<!-- ------------------------------------------------------------------------------------------------------------- -->
+
     <script>
         const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),

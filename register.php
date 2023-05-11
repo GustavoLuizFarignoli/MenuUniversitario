@@ -43,42 +43,42 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoAmarelo.php">
+                        <a href="bloco.php?id=1">
                             <i class='bx bx-building icon-amarelo' ></i>
-                            <span class="text nav-text">Bloco Amarelo</span>
+                            <span class="text nav-text" >Bloco Amarelo</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoAzul.php">
+                        <a href="bloco.php?id=2">
                             <i class='bx bx-building icon-azul'></i>
                             <span class="text nav-text">Bloco Azul</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoVerde.php">
+                        <a href="bloco.php?id=3">
                             <i class='bx bx-building icon-verde' ></i>
                             <span class="text nav-text">Bloco Verde</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoLaranja.php">
+                        <a href="bloco.php?id=4">
                             <i class='bx bx-building icon-laranja' ></i>
                             <span class="text nav-text">Bloco Laranja</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoVermelho.php">
+                        <a href="bloco.php?id=5">
                             <i class='bx bx-building icon-vermelho' ></i>
                             <span class="text nav-text">Bloco Vermelho</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="blocoMedicina.php">
+                        <a href="bloco.php?id=6">
                             <i class='bx bx-plus-medical icon-medicina' ></i>
                             <span class="text nav-text">Bloco de Medicina</span>
                         </a>
@@ -100,9 +100,9 @@
                 </li>
                 <?php
                     if(isset($_SESSION["user"])){
-                        echo '<li class="">' . '<a href="destruirsession.php">' . "<i class='bx bx-log-out icon-sair' >" . '</i>' . '<span class="text nav-text">' . 'Sair</span>' . '</a>' . '</li>';
+                        echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
                     } else {
-                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
                     } 
                 ?>
             </div>
