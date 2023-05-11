@@ -29,14 +29,16 @@
     width: 300px;
     height: 450px;
     border-radius: 30px;
-    background: #fff;
-    box-shadow:rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
+    background: #fff;   
     padding: 10px 10px 10px 5px;
     border: solid 1px;
+    margin: 1%;
   }
 
 .grupo{
     padding: 10px 10px 10px 5px;
+    margin: 1%;
+    margin-top: 2%;
 }
 
 .homelogin{
@@ -51,3 +53,29 @@ form {
     justify-content: center;
     align-items: center;
 }
+
+.button {
+  align-self: center;
+  width: 100px;
+  margin-top: 10px;
+  background-color: #fff;
+  color: var(--text-color) ;
+  border-radius: 10em;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 1em 2em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 0 0 var(--border-color);
+}
+
+.button:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 var(--border-color);
+};
+
+.button:active {
+  transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 var(--border-color);
+};

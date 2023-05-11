@@ -160,10 +160,10 @@
                 <i class="bx bx-check" id="verify" style="color: rgb(21, 173, 21); visibility: hidden;"></i>
                 
             <div class="group">
-                <input type="checkbox" value="" id="showpassbox"> 
+                <input type="checkbox" value="" id="showpassbox"> <b>Visualizar senha</b>
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label> <b>Visualizar senha</b> </label>
+                 
             </div>
           
             <button type="submit" class="registerbtn" >Registre-se</button>

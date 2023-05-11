@@ -163,8 +163,8 @@
                         <a href="#!">Esqueceu sua senha?</a>
                     </div>
                     -->
-                    <button type="submit" class="grupo">Entrar</button>
-                    <div class="text-center">
+                    <button type="submit" class="button">Entrar</button>
+                    <div class=grupo>
                         <p>Ainda não faz parte dessa comunidade? <a href="register.php">Registre-se</a></p>
                     </div>
             </div>
