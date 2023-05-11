@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3.5%;
 }
 
 
@@ -31,9 +30,9 @@
 
 .group {
     position: relative;
-    margin: 2%;
+    margin: 1%;
     align-self: center;
-    padding: 12px 12px 12px 7px;
+    padding: 10px 10px 10px 5px;
     color: #707070;
     font-size: 16px
    }
@@ -47,7 +46,6 @@
     border-bottom: 1px solid var(--primary-color);
     background: transparent;
     color: #707070;
-    margin: 1%;
    }
    
    .input:focus {

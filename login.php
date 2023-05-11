@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -163,8 +162,8 @@
                         <a href="#!">Esqueceu sua senha?</a>
                     </div>
                     -->
-                    <button type="submit" class="button">Entrar</button>
-                    <div class=grupo>
+                    <button type="submit" class="grupo">Entrar</button>
+                    <div class="text-center">
                         <p>Ainda não faz parte dessa comunidade? <a href="register.php">Registre-se</a></p>
                     </div>
             </div>
