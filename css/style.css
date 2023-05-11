@@ -353,7 +353,7 @@ body.dark .switch::before{
     margin: 15px;
     display: flex;
     flex-direction: column;
-    margin-left:10px; ;
+    margin-left:10px;
 }
 
 .sidebar.close .home{

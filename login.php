@@ -110,7 +110,7 @@
 
     </nav>
 
-    <section class="home">
+    <section class="homelogin">
         <form action="action_login.php" method="post" id="login" name="login">
         <div class="geral">
             <div class="card">

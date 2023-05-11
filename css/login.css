@@ -1,6 +1,6 @@
 .input {
-    color: #8707ff;
-    border: 2px solid #8707ff;
+    color: var(--primary-color);
+    border: 1px solid black;
     border-radius: 10px;
     padding: 10px 25px;
     background: transparent;
@@ -9,9 +9,7 @@
     padding: 10px 10px 10px 5px;
    }
    
-   .input:active {
-    box-shadow: 2px 2px 15px #8707ff inset;
-   }
+   
    
    .geral{
     margin-top: 1%;
@@ -22,6 +20,7 @@
     width: 200px;
     display: flex;
     justify-content: center;
+    align-self: center;
     align-items: center;
 }
 
@@ -30,8 +29,8 @@
     width: 300px;
     height: 450px;
     border-radius: 30px;
-    background: lightgrey;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
+    background: #fff;
+    box-shadow:rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
     padding: 10px 10px 10px 5px;
     border: solid 1px;
   }
@@ -40,7 +39,14 @@
     padding: 10px 10px 10px 5px;
 }
 
-.home{
+.homelogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+}
+
+form {
     display: flex;
     justify-content: center;
     align-items: center;
