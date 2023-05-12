@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Maio-2023 às 00:05
+-- Tempo de geração: 12-Maio-2023 às 15:12
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -155,7 +155,29 @@ INSERT INTO `produto` (`id`, `Nome`, `Preco`, `Descrição`, `fk_Estabelecimento
 (36, 'Fatia mais Refri lata', 15, '', 4, 3),
 (37, 'Combo Estudante: X-Frango + Refresco', 7, '', 5, 3),
 (38, 'Água', 4.5, '', 5, NULL),
-(39, 'Pastel Salgado - 18cm', 8.5, 'Sabores: Frango, Palmito Pizza, Queijo', 7, NULL);
+(39, 'Pastel Salgado - 18cm', 8.5, 'Sabores: Frango, Palmito Pizza, Queijo', 7, NULL),
+(40, 'Fatia Pizza Premium', 12, NULL, 2, NULL),
+(41, 'Meia Fatia Premium', 7, NULL, 2, NULL),
+(42, 'Refrigerante lata', 6, NULL, 2, NULL),
+(43, 'Refrigerante 600 ml', 8.5, NULL, 2, NULL),
+(44, 'Refrigerante 200 ml', 3.5, NULL, 2, NULL),
+(45, 'Cappuccino Italiano', 8.9, NULL, 3, NULL),
+(46, 'Espresso Simples', 6.9, NULL, 3, NULL),
+(47, 'Foundue Chocolate ao leite + fruta', 17.9, NULL, 3, NULL),
+(48, 'Foundue Chocolate branco + fruta', 17.9, NULL, 3, NULL),
+(49, 'Foundue Pistache + fruta', 19.9, NULL, 3, NULL),
+(50, 'Hot Chocolate ao leite', 10.9, NULL, 3, NULL),
+(51, 'Hot Chocolate White Oz', 10.9, NULL, 3, NULL),
+(52, 'Escondidinho tradicional', 19.9, NULL, 4, NULL),
+(53, 'Escondidinho Especial', 23.9, NULL, 4, NULL),
+(54, 'Batata Recheada Premium', 25, NULL, 2, NULL),
+(55, 'Calzone Tradicional Grande', 25, NULL, 2, NULL),
+(56, 'Calzone Premium Médio', 25, NULL, 2, NULL),
+(57, 'Calzone Premium Grande', 30, NULL, 2, NULL),
+(59, 'Salada', 22, 'Salada de Peito de Peru ou Salada de Frango Grelhado', 7, NULL),
+(60, 'Salada', 26.9, 'Salada de atum ou Salada de Frango', 6, NULL),
+(62, 'Sanduíche natural', 16.9, 'Peito de Peru, Frango ou Atum', 6, NULL),
+(63, 'Panini', 25.9, 'Caprese (Vegetariano), Italiano, Frango', 6, 2);
 
 -- --------------------------------------------------------
 
@@ -283,7 +305,7 @@ ALTER TABLE `estabelecimento`
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- Restrições para despejos de tabelas
