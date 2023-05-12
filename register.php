@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="./imagens/u.png">
 </head>
 <body>
-    <nav class="sidebar close">
+<nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
@@ -24,8 +24,8 @@
                 </div>
             </div>
 
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
+            <i class='bx bx-chevron-right toggle' style="color: white; background-color: #695CFE"></i>
+        </header>   
 
         <div class="menu-bar">
             <div class="menu">
@@ -107,6 +107,7 @@
                 ?>
             </div>
         </div>
+        </div>
 
     </nav>
 
@@ -160,10 +161,10 @@
                 <i class="bx bx-check" id="verify" style="color: rgb(21, 173, 21); visibility: hidden;"></i>
                 
             <div class="group">
-                <input type="checkbox" value="" id="showpassbox"> 
+                <input type="checkbox" value="" id="showpassbox"> <b>Visualizar senha</b>
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                <label> <b>Visualizar senha</b> </label>
+                 
             </div>
           
             <button type="submit" class="registerbtn" >Registre-se</button>

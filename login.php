@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +12,7 @@
     <link rel="icon" type="image/x-icon" href="imagens/u.png">
 </head>
 <body>
-    <nav class="sidebar close">
+<nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
@@ -24,8 +25,8 @@
                 </div>
             </div>
 
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
+            <i class='bx bx-chevron-right toggle' style="color: white; background-color: #695CFE"></i>
+        </header>   
 
         <div class="menu-bar">
             <div class="menu">
@@ -107,26 +108,6 @@
                 ?>
             </div>
         </div>
-
-            <div class="bottom-content">
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Modo Escuro</span>
-                    
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-                <li class="">
-                    <a href="#">
-                        <i class='bx bx-user icon-login' ></i>
-                        <span class="text nav-text">Login</span>
-                    </a>
-                </li>
-            </div>
         </div>
 
     </nav>
@@ -162,8 +143,8 @@
                         <a href="#!">Esqueceu sua senha?</a>
                     </div>
                     -->
-                    <button type="submit" class="grupo">Entrar</button>
-                    <div class="text-center">
+                    <button type="submit" class="button">Entrar</button>
+                    <div class=grupo>
                         <p>Ainda não faz parte dessa comunidade? <a href="register.php">Registre-se</a></p>
                     </div>
             </div>
