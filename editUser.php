@@ -128,60 +128,45 @@
                         <span class="switch"></span>
                     </div>
                 </li>
-                <?php
-                    if(isset($_SESSION["user"])){
-                        echo '<li class="">' . '<a href="destruirsession.php">' . "<i class='bx bx-log-out icon-sair' >" . '</i>' . '<span class="text nav-text">' . 'Sair</span>' . '</a>' . '</li>';
-                    } else {
-                        echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
-                    } 
-                ?>
-            </div>
-        </div>
-
-    </nav>
 
     <section class="home">
-        <div class="text"><?php echo "Bem vindo " . $nome . " ;D"; ?></div> <!-- Tag php dentro da div pega o nome do usuário e escreve como texto -->
-        <div class="text"><?php echo "E-mail:  " . $email; ?></div> <!-- Tag php dentro da div pega o nome do usuário e escreve como texto -->
-        <button style="background-color:plum"><a href="editUser.php">Alterar informações</button>
-        <button style="background-color:red" onclick="deletar()">Deletar minha conta</button>
-    </section>
+        <hr>
+            <h3>Atualize as suas informações</h3>
+        <hr>
+        <div class="text">
+            <form action="">
+            <?php
+                $useratual = $_SESSION["user"];
+                $sql = "SELECT Nome, E_mail, Senha FROM usario WHERE user = '$useratual'"  
 
-    <script>
-        const body = document.querySelector('body'),
-        sidebar = body.querySelector('nav'),
-        toggle = body.querySelector(".toggle"),
-        searchBtn = body.querySelector(".search-box"),
-        modeSwitch = body.querySelector(".toggle-switch"),
-        modeText = body.querySelector(".mode-text");
+                $gotResultado = mysqli_query($conn,$sql);
 
+                if($gotResultado){
+                    if(mysqli_num_rows($gotResultado)>0){
+                        while($row = mysqli_fetch_array($gotResultado)){
+                            //print_r($row[Nome]);
+                            ?>
+                            <div class="text">
+                                                <input type="email" name="updateEmail" class="input" value="<?php echo $row[E_mail]; ?>">
+                                            </div>
+                                            
+                                            <div class="text">
+                                                <input type="text" name="updateNome" class="input" value="<?php echo $row[Nome]; ?>">
+                                            </div>
+                                            
+                                            <div class="text">
+                                                <input type="text" name="updateSenha" class="input" value="<?php echo $row[Senha]; ?>">
+                                            </div>
 
-        toggle.addEventListener("click" , () =>{
-            sidebar.classList.toggle("close");
-        })
-
-        searchBtn.addEventListener("click" , () =>{
-            sidebar.classList.remove("close");
-        })
-
-        modeSwitch.addEventListener("click" , () =>{
-            body.classList.toggle("dark");
+                                            <div class="text">
+                                                <input type="submit" name="update" class="registerbtn" value="Atualizar">
+                                            </div>
+                            <?php
+                        }
+                    }
+                }
+            ?>
             
-            if(body.classList.contains("dark")){
-                modeText.innerText = "Modo Claro";
-            }else{
-                modeText.innerText = "Modo Escuro";
-                
-            }
-        });
-
-        function deletar(){
-            if(confirm("Deseja excluir sua conta ? Essa ação é irreversivel")){
-                alert("Conta excluida!")
-                window.location.href = "action_delete.php" //envia para código que fara exclusão da conta
-            }
-        }
-    </script>
-
-</body>
-</html>
+            </form>
+        </div>
+    </section>
