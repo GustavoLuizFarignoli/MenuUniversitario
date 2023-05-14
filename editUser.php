@@ -1,40 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <?php
+<?php
         session_start();
         if(isset($_SESSION["user"])){
 
             include('connection.php');
 
             $email = $_SESSION["user"];
-
-            $sql = "SELECT Nome, fk_Tipo_de_Usuario_id  FROM usuario WHERE E_mail = '$email'";
-            $result = $conn->query($sql);
-        
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()){
-                    $nome = $row['Nome'];
-                    $tipo = $row['fk_Tipo_de_Usuario_id'];
-                }
-            }
-
-            if ($tipo == 2){
-                header('Location: paginadogerente.php'); // essa página ainda precisa ser implementada
-            }
-
-            if ($tipo == 3){
-                header('Location: paginadoadm.php'); // essa página ainda precisa ser implementada
-            }
-
-        } else {
-            header('Location: paginadousuario.php');
         }
-    ?>
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/bloco.css">
+    <link rel="stylesheet" href="./css/register.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title><?php echo $nome . " - Menu Universitário"; ?></title>
@@ -128,45 +108,60 @@
                         <span class="switch"></span>
                     </div>
                 </li>
+                <?php
+                    if(isset($_SESSION["user"])){
+                        echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                    } else {
+                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                    } 
+                ?>
+            </div>
+        </div>
+        </div>
+
+    </nav>
 
     <section class="home">
+
+            <h3 class="text" style="align-self: center;color:black; font-weight: bold">Atualize as suas informações</h3>
         <hr>
-            <h3>Atualize as suas informações</h3>
-        <hr>
-        <div class="text">
-            <form action="">
-            <?php
-                $useratual = $_SESSION["user"];
-                $sql = "SELECT Nome, E_mail, Senha FROM usario WHERE user = '$useratual'"  
-
-                $gotResultado = mysqli_query($conn,$sql);
-
-                if($gotResultado){
-                    if(mysqli_num_rows($gotResultado)>0){
-                        while($row = mysqli_fetch_array($gotResultado)){
-                            //print_r($row[Nome]);
-                            ?>
-                            <div class="text">
-                                                <input type="email" name="updateEmail" class="input" value="<?php echo $row[E_mail]; ?>">
-                                            </div>
-                                            
-                                            <div class="text">
-                                                <input type="text" name="updateNome" class="input" value="<?php echo $row[Nome]; ?>">
-                                            </div>
-                                            
-                                            <div class="text">
-                                                <input type="text" name="updateSenha" class="input" value="<?php echo $row[Senha]; ?>">
-                                            </div>
-
-                                            <div class="text">
-                                                <input type="submit" name="update" class="registerbtn" value="Atualizar">
-                                            </div>
-                            <?php
-                        }
-                    }
-                }
-            ?>
+        <div class="container" style="align-self: center;">
+            <form action="action_update.php" method="post" id="update" name="update">
+                
+            
+            <div class="group">
+                <input type="text" name="updateNome" id ='updateNome' class="input" pattern="[a-zA-Z ]*" value="<?php echo $nome; ?>">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label><b>Nome completo</b></label>
+            </div>                                           
+            <div class="group">
+                <input type="text" name="updateSenha" id = "updateSenha" class="input" value="<?php echo $senha; ?>"pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}"onkeyup="check();checkreg();" title="Sua senha deve conter no minimo 6 caracteres com pelo menos uma letra maíscula uma letra minuscula e um número">
+                <span class="bar"></span>
+                <label><b>Senha</b></label>
+            </div> 
+            <button type="submit" class="registerbtn">Atualizar</button>
+                    
             
             </form>
         </div>
     </section>
+        <script>
+            const body = document.querySelector("body"),
+            sidebar = body.querySelector(".sidebar"),
+            toggle = body.querySelector(".toggle"),
+            searchBtn = body.querySelector(".search-box"),
+            modeSwitch = body.querySelector(".toggle-switch"),
+            modeText = body.querySelector(".mode-text");
+
+            toggle.addEventListener("click", ()=>{
+                body.classList.toggle("close");
+            });
+
+            modeSwitch.addEventListener("click", ()=>{
+                body.classList.toggle("dark");
+            });
+        
+    </script>
+</body>
+</html>
