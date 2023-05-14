@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Maio-2023 às 22:03
+-- Tempo de geração: 12-Maio-2023 às 23:55
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -159,10 +159,10 @@ INSERT INTO `produto` (`id`, `Nome`, `Preco`, `Descrição`, `fk_Estabelecimento
 (32, 'Meia Fatia de Pizza Tradicional', 6, NULL, 2, NULL),
 (33, 'Cappuccino Especial do Oz', 11.9, NULL, 3, NULL),
 (34, 'Latte Caramel', 9, NULL, 3, NULL),
-(35, 'Buffet Kilo', 59.9, '', 4, NULL),
-(36, 'Fatia mais Refri lata', 15, '', 4, 3),
-(37, 'Combo Estudante: X-Frango + Refresco', 7, '', 5, 3),
-(38, 'Água', 4.5, '', 5, NULL),
+(35, 'Buffet Kilo', 59.9, NULL, 4, NULL),
+(36, 'Fatia mais Refri lata', 15, NULL, 4, 3),
+(37, 'Combo Estudante: X-Frango + Refresco', 7, NULL, 5, 3),
+(38, 'Água', 4.5, NULL, 5, NULL),
 (39, 'Pastel Salgado - 18cm', 8.5, 'Sabores: Frango, Palmito Pizza, Queijo, Frango c/ Requeijão, Carne c/ Ovo, Portuguesa, Frango Caipira, Frango c/ Cheddar, Calabresa c/ Queijo, Carne c/ Queijo, Carne c/ Ovo e azeitona, Carne c/ Requeijão ', 7, NULL),
 (40, 'Fatia Pizza Premium', 12, NULL, 2, NULL),
 (41, 'Meia Fatia Premium', 7, NULL, 2, NULL),

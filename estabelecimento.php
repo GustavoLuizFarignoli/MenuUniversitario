@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -111,69 +111,78 @@
     </nav>  
 
     <section class="home">
-        <?php
+    <?php
+    include('connection.php');
 
-        include('connection.php');
+    if(isset($_GET['id'])){
 
-        if(isset($_GET['id'])){
-            
-            $id = $_GET['id'];
+        $id = $_GET['id'];
 
-            $sql = "SELECT * FROM estabelecimento WHERE fk_Bloco_Numero = '$id'";
-            $result = $conn->query($sql);
+        $sql = "SELECT * FROM estabelecimento WHERE id = '$id'";
+        $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-                $side = 0;
-                while ($row = $result->fetch_assoc()){
-
-                    $array = explode("- ",$row['Descricao']);
-
-                    if(($side % 2) == 0){
-                        # src="data:image/jpeg;base64,' . base64_encode($row['Imagem']) .' "
-                        echo '
-                        <div style="display: flex; flex-direction:row">
-                            <a href="estabelecimento.php?id='.$row['id'].'"><img class="ibagem" src="getImage.php?id=' . $row['id']  .'"></a>
-                            <div style="padding-top: 20px;">
-                                <span class="text nav-text" style="margin:15px">'. $row['Nome'] . '</span>
-                                    <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
-                                        <li>' . $array[1] . '</li>
-                                        <li>' . $array[2] . '</li>
-                                        <li>' . $array[3] . '</li>
-                                    </ul>
-                            </div>
-                        </div>';
-                    } else {
-                        echo '
-                        <div style="display: flex; flex-direction:row-reverse">
-                        <a href="estabelecimento.php?id='.$row['id'].'"><img class="ibagem" src="getImage.php?id=' . $row['id']  .'"></a>
-                            <div style="padding-top: 20px;">
-                                <span class="text nav-text" style="margin:15px">'. $row['Nome'] . '</span>
-                                    <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
-                                        <li>' . $array[1] . '</li>
-                                        <li>' . $array[2] . '</li>
-                                        <li>' . $array[3] . '</li>
-                                    </ul>
-                            </div>
-                        </div>';
-                    }
-
-                    $side += 1;
-                }
-            } else {
-                $message = "Não foi possível encontrar o bloco, tente novamente mais tarde";
-                echo "<script type='text/javascript'>alert('$message');</script>";
-                echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()){
+                $nome = $row['Nome'];
             }
 
         } else {
-            $message = "Não foi possível encontrar o bloco, tente novamente mais tarde";
+            $message = "Não foi possível encontrar o estabelecimento, tente novamente mais tarde";
             echo "<script type='text/javascript'>alert('$message');</script>";
             echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
         }
-        ?>
+   
+    } else {
+        $message = "Não foi possível encontrar o estabelecimento, tente novamente mais tarde";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
+    }
+    
+    
+    ?>
+    <div class="text"><?php echo $nome ?></div>
+    <?php
+    echo '<img style="width: fit-content; height:30%" src="getImage.php?id=' . $id .'"';
+    ?>
+    <?php
+    include('connection.php');
+
+    $sql = "SELECT * FROM produto WHERE fk_Estabelecimento_id = '$id'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()){
+            echo
+            '<div style="display: flex; flex-direction:row">
+                <div style="padding-top: 20px;">
+                    <span class="text nav-text" style="margin:15px">' . $row['Nome'] . '</span>
+                        <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
+                                <li>Preço: R$' . $row['Preco'] .'</li>';
+                                if (isset($row['Descrição'])){
+                                   echo '<li>Sabores: '. $row['Descrição'] .'</li>';
+                                }
+                                if (isset($row['fk_Categoria_id_categoria'])){
+                                    $categoria = $row['fk_Categoria_id_categoria'];
+                                    $sql2 = "SELECT * FROM categoria WHERE id_categoria = '$categoria'";
+                                    $result2 = $conn->query($sql2);
+                                    if ($result2->num_rows > 0) {
+                                        while ($row2 = $result2->fetch_assoc()){
+                                            echo '<li>Categoria: '. $row2['Nome_categoria'] .'</li>';
+                                        }
+                                    }
+                                 }
+                                echo '
+                        </ul>
+                </div>
+            </div>';
+        } 
+    } else {
+        $message = "Não foi possível Carregar os, tente novamente mais tarde";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
+    }
+    ?>
     </section>
-
-
     <script>
         const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),

@@ -1,47 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <?php
-        session_start();
-        if(isset($_SESSION["user"])){
-
-            include('connection.php');
-
-            $email = $_SESSION["user"];
-
-            $sql = "SELECT Nome, fk_Tipo_de_Usuario_id  FROM usuario WHERE E_mail = '$email'";
-            $result = $conn->query($sql);
-        
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()){
-                    $nome = $row['Nome'];
-                    $tipo = $row['fk_Tipo_de_Usuario_id'];
-                }
-            }
-
-            if ($tipo == 2){
-                header('Location: paginadogerente.php'); // essa página ainda precisa ser implementada
-            }
-
-            if ($tipo == 3){
-                header('Location: paginadoadm.php'); // essa página ainda precisa ser implementada
-            }
-
-        } else {
-            header('Location: paginadousuario.php');
-        }
-    ?>
+<?php
+session_start();
+if(!isset($_SESSION["user"])){
+    header("Location: index.php");
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bloco.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/register.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <title><?php echo $nome . " - Menu Universitário"; ?></title>
+    <title>Menu Universitário</title>
     <link rel="icon" type="image/x-icon" href="./imagens/u.png">
 </head>
 <body>
-    <nav class="sidebar close">
+<nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
@@ -130,21 +106,85 @@
                 </li>
                 <?php
                     if(isset($_SESSION["user"])){
-                        echo '<li class="">' . '<a href="destruirsession.php">' . "<i class='bx bx-log-out icon-sair' >" . '</i>' . '<span class="text nav-text">' . 'Sair</span>' . '</a>' . '</li>';
-                    } else {
                         echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                    } else {
+                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
                     } 
                 ?>
             </div>
         </div>
+        </div>
 
     </nav>
 
-    <section class="home">
-        <div class="text"><?php echo "Bem vindo " . $nome . " ;D"; ?></div> <!-- Tag php dentro da div pega o nome do usuário e escreve como texto -->
-        <div class="text"><?php echo "E-mail:  " . $email; ?></div> <!-- Tag php dentro da div pega o nome do usuário e escreve como texto -->
-        <button onclick="editar()">Editar Senha</button>
-        <button style="background-color:red" onclick="deletar()">Excluir Conta</button>
+    <?php
+    include('connection.php');
+
+    if(isset($_POST['submit'])){
+        $alteração = 0;
+
+        $email = $_SESSION["user"];
+
+        if(!empty($_POST['nome'])){
+            $nome = $_POST['nome'];
+
+            $sql = "UPDATE usuario SET Nome = '$nome' WHERE E_mail = '$email'";
+            if ($conn->query($sql) === TRUE) {
+                $alteração += 1;
+            }
+        }
+        if(!empty($_POST['psw'])){
+            $senha = $_POST['psw'];
+            $hash = password_hash($senha, PASSWORD_BCRYPT);
+
+            $sql = "UPDATE usuario SET Senha = '$hash' WHERE E_mail = '$email'";
+            if ($conn->query($sql) === TRUE) {
+                $alteração += 1;
+            }
+        }
+
+        if($alteração != 0){
+            $message = "Alterações realizadas com sucesso";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            echo "<script type='text/javascript'>window.location.href = 'destruirsession.php';</script>";
+        } else {
+            $message = "Abortando alterações";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            echo "<script type='text/javascript'>window.location.href = 'paginadousuario.php';</script>";
+        }
+    }
+    
+    
+    ?>
+
+    <section class="geral">
+        <form action="editar.php" method="post" id="edit" name="edit">
+        <div class="container">    
+            <div class="group">
+                <input type="text" class="input" name="nome" id="nome" pattern="[a-zA-Z ]*">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label><b>Alterar Nome</b></label>
+            </div>
+ 
+            <div class="group">
+                <input type="password" class="input" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}"onkeyup="checkreg();" title="Sua senha deve conter no minimo 6 caracteres com pelo menos uma letra maíscula uma letra minuscula e um número">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label><b>Alterar Senha</b></label>
+            </div>
+
+            <div class="group">
+                <input type="checkbox" value="" id="showpassbox"> <b>Visualizar senha</b>
+                <span class="highlight"></span>
+                <span class="bar"></span> 
+            </div>
+            
+                <i class="bx bx-x" id="verify-reg" style="color: rgb(173, 21, 21); visibility: hidden;"></i>
+              
+            <button type="submit" name="submit" class="registerbtn" >Editar</button>
+        </div>
+        </form>
     </section>
 
     <script>
@@ -154,6 +194,8 @@
         searchBtn = body.querySelector(".search-box"),
         modeSwitch = body.querySelector(".toggle-switch"),
         modeText = body.querySelector(".mode-text");
+        const cb = document.querySelector('#showpassbox');
+        const pass = document.querySelector('#psw');
 
 
         toggle.addEventListener("click" , () =>{
@@ -175,16 +217,34 @@
             }
         });
 
-        function deletar(){
-            if(confirm("Deseja excluir sua conta ? Essa ação é irreversivel")){
-                alert("Conta excluida!")
-                window.location.href = "action_delete.php" //envia para código que fara exclusão da conta
+
+        cb.addEventListener("click", function (){
+            if (pass.type == 'password'){
+                pass.type = 'text';
+            } else {
+                pass.type = 'password';
+            }
+        })
+
+        pass.addEventListener("focus", function(){
+            document.getElementById("verify-reg").style.visibility = "visible";
+        })
+
+        pass.addEventListener("blur", function(){
+            document.getElementById("verify-reg").style.visibility = "hidden";
+        })
+
+        function checkreg() {
+            if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/.test(document.getElementById("psw").value)) {
+                console.log("reg valid")
+                document.getElementById("verify-reg").className = "bx bx-check";
+                document.getElementById("verify-reg").style.color = "green";
+            } else {
+                console.log("reg invalid")
+                document.getElementById("verify-reg").className = "bx bx-x";
+                document.getElementById("verify-reg").style.color = "red";
             }
         }
-        function editar(){
-            window.location.href = "editar.php" //envia para código que fara exclusão da conta
-        }
     </script>
-
 </body>
 </html>
