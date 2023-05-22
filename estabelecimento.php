@@ -142,7 +142,7 @@
     ?>
     <div class="text"><?php echo $nome ?></div>
     <?php
-    echo '<img style="width: fit-content; height:30%" src="getImage.php?id=' . $id .'"';
+    echo '<img style="width: fit-content; height:30%" src="getImage.php?id=' . $id .'">';
     ?>
     <?php
     include('connection.php');
@@ -177,7 +177,7 @@
             </div>';
         } 
     } else {
-        $message = "Não foi possível Carregar os, tente novamente mais tarde";
+        $message = "Não foi possível Carregar os produtos, tente novamente mais tarde";
         echo "<script type='text/javascript'>alert('$message');</script>";
         echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
     }
