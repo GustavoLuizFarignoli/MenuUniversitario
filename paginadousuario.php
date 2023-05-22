@@ -27,7 +27,9 @@
             }
 
         } else {
-            header('Location: paginadousuario.php');
+            $message = "Por favor, Faça seu login primeiro!";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            echo "<script type='text/javascript'>window.location.href = 'login.php';</script>";
         }
     ?>
 <head>
