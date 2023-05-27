@@ -139,9 +139,16 @@
                                         <li>' . $array[1] . '</li>
                                         <li>' . $array[2] . '</li>
                                         <li>' . $array[3] . '</li>
+                                        <li><button data-open-modal>Consultar cardápio</button></li>
                                     </ul>
                             </div>
-                        </div>';
+                        </div>
+                        
+                        <dialog data-modal class="modal">
+                            <div class="">
+                                <span class="text nav-text" style="margin:15px">Estabelecimento</span>
+                            </div>
+                        </dialog>';
                     } else {
                         echo '
                         <div style="display: flex; flex-direction:row-reverse">
