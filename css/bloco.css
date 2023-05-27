@@ -25,3 +25,19 @@
   .ibagem:active {
     transform: scale(0.95) rotateZ(1.7deg);
   }
+
+  dialog::backdrop{
+    background-color: rgb(0 0 0 / .6);
+  }
+
+  dialog {
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 0 1rem rgb(0 0 0 / .4);
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    padding: 10px;
+  }
+
+  

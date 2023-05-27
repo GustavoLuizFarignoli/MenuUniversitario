@@ -116,6 +116,20 @@
 
     <section class="home">
         <div class="text">Bem Vindo ao Menu Universitário</div>
+
+        <button class="button">Consultar cardápio</button>
+        <dialog>
+            <button class="button">Fechar</button>
+            <div class="text-cardapio-titulo">[ESTABELECIMENTO]</div>
+            <div class="cardapio-item">
+                <li class="modo-text text-cardapio">
+                    <span class="modo-text text-cardapio">[NOME 1]</span>
+                    <span class="modo-text text-cardapio">[DESCRICAO]</span>
+                    <span class="modo-text text-cardapio">[CATEGORIA]</span>
+                    <span class="modo-text text-cardapio">[PRECO]</span>
+                </li>
+            </div>
+        </dialog>
     </section>
 
     <script>
@@ -126,6 +140,9 @@
         modeSwitch = body.querySelector(".toggle-switch"),
         modeText = body.querySelector(".mode-text");
 
+        const button = document.querySelector("button");
+        const modal = document.querySelector("dialog");
+        const buttonClose = document.querySelector("dialog button")
 
         toggle.addEventListener("click" , () =>{
             sidebar.classList.toggle("close");
@@ -145,6 +162,14 @@
                 
             }
         });
+
+        button.onclick = function () {
+            modal.showModal();
+        };
+
+        buttonClose.onclick = function () {
+            modal.close();
+        };
     </script>
 
 </body>

@@ -341,11 +341,35 @@ body.dark .switch::before{
     flex-direction: column;
     padding: 12px 60px;
 }
-.home .text{
+.home .text {
     font-size: 30px;
     font-weight: 500;
     color: var(--text-color);
     padding: 12px 60px;
+}
+
+.home .text-cardapio {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 15px 30px;
+}
+
+.home .text-cardapio-titulo {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 15px 400px;
+}
+
+.home .button {
+    border-radius: 6px;
+    transition-duration: 0.4s;
+}
+
+.home .button:hover {
+    background-color: var(--primary-color); /* Green */
+    color: white;
 }
 
 .home .card{
