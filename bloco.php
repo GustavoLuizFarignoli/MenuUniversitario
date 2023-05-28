@@ -140,6 +140,42 @@
                                         <li>' . $array[2] . '</li>
                                         <li>' . $array[3] . '</li>
                                     </ul>
+                                    <button class="button" onclick="openmodal('.  $row['id'] .')">Consultar cardápio</button>
+                                    <dialog id="'. $row['id'] .'">
+                                        <button class="button" onclick="fecharmodal('.  $row['id'] .')">Fechar</button>
+                                        <div class="text-cardapio-titulo">'. $row['Nome'] . '</div>';
+                                        $idb = $row['id'];
+                                        $sql2 = "SELECT * FROM produto WHERE fk_Estabelecimento_id = '$idb'";
+                                        $result2 = $conn->query($sql2);
+                                        if ($result2->num_rows > 0) {
+                                            while ($row2 = $result2->fetch_assoc()){
+                                                echo '
+                                                <div class="cardapio-item">
+                                                    <li class="modo-text text-cardapio">
+                                                        <span class="modo-text text-cardapio">'.  $row2['Nome'] .'</span>
+                                                        <span class="modo-text text-cardapio">Preço: R$'. $row2['Preco'] .'</span>';
+                                                        if (isset($row2['Descrição'])){
+                                                            echo '<span class="modo-text text-cardapio">Sabores: '. $row2['Descrição'] .'</span>';
+                                                        }
+                                                        if (isset($row2['fk_Categoria_id_categoria'])){
+                                                            $categoria = $row2['fk_Categoria_id_categoria'];
+                                                            $sql3 = "SELECT * FROM categoria WHERE id_categoria = '$categoria'";
+                                                            $result3 = $conn->query($sql3);
+                                                            if ($result3->num_rows > 0) {
+                                                                while ($row3 = $result3->fetch_assoc()){
+                                                                    echo '<span class="modo-text text-cardapio">Categoria: '. $row3['Nome_categoria'] .'</span>';
+                                                                }
+                                                            }
+                                                        }
+                                                        echo '
+                                                    </li>
+                                                </div>';
+                                            }
+                                        } else {
+                                            echo '<span class="modo-text text-cardapio">Não há produtos cadastro para esse estabelecimento</span>';
+                                        }
+                                    echo '
+                                    </dialog>
                             </div>
                         </div>';
                     } else {
@@ -153,6 +189,40 @@
                                         <li>' . $array[2] . '</li>
                                         <li>' . $array[3] . '</li>
                                     </ul>
+                                    <button class="button" onclick="openmodal('.  $row['id'] .')">Consultar cardápio</button>
+                                    <dialog id="'. $row['id'] .'">
+                                        <button class="button" onclick="fecharmodal('.  $row['id'] .')">Fechar</button>
+                                        <div class="text-cardapio-titulo">'. $row['Nome'] . '</div>';
+                                        $idb = $row['id'];
+                                        $sql2 = "SELECT * FROM produto WHERE fk_Estabelecimento_id = '$idb'";
+                                        $result2 = $conn->query($sql2);
+                                        if ($result2->num_rows > 0) {
+                                            while ($row2 = $result2->fetch_assoc()){
+                                                echo '
+                                                <div class="cardapio-item">
+                                                    <li class="modo-text text-cardapio">
+                                                        <span class="modo-text text-cardapio">'.  $row2['Nome'] .'</span>
+                                                        <span class="modo-text text-cardapio">Preço: R$'. $row2['Preco'] .'</span>';
+                                                        if (isset($row2['Descrição'])){
+                                                            echo '<span class="modo-text text-cardapio">Sabores: '. $row2['Descrição'] .'</span>';
+                                                        }
+                                                        if (isset($row2['fk_Categoria_id_categoria'])){
+                                                            $categoria = $row2['fk_Categoria_id_categoria'];
+                                                            $sql3 = "SELECT * FROM categoria WHERE id_categoria = '$categoria'";
+                                                            $result3 = $conn->query($sql3);
+                                                            if ($result3->num_rows > 0) {
+                                                                while ($row3 = $result3->fetch_assoc()){
+                                                                    echo '<span class="modo-text text-cardapio">Categoria: '. $row3['Nome_categoria'] .'</span>';
+                                                                }
+                                                            }
+                                                        }
+                                                        echo '
+                                                    </li>
+                                                </div>';
+                                            }
+                                        }
+                                    echo '
+                                    </dialog>
                             </div>
                         </div>';
                     }
@@ -176,30 +246,40 @@
 
     <script>
         const body = document.querySelector('body'),
-      sidebar = body.querySelector('nav'),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text");
+        sidebar = body.querySelector('nav'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
 
 
-    toggle.addEventListener("click" , () =>{
-        sidebar.classList.toggle("close");
-    })
+        function openmodal (parameter1) {
+            modal = document.getElementById(parameter1)
+            modal.showModal();
+        };
 
-    searchBtn.addEventListener("click" , () =>{
-        sidebar.classList.remove("close");
-    })
+        function fecharmodal(parameter2) {
+            modal = document.getElementById(parameter2)
+            modal.close();
+        };
 
-    modeSwitch.addEventListener("click" , () =>{
-        body.classList.toggle("dark");
-        
-        if(body.classList.contains("dark")){
-            modeText.innerText = "Modo Claro";
-        }else{
-            modeText.innerText = "Modo Escuro";
-        }
-    });
+        toggle.addEventListener("click" , () =>{
+            sidebar.classList.toggle("close");
+        })
+
+        searchBtn.addEventListener("click" , () =>{
+            sidebar.classList.remove("close");
+        })
+
+        modeSwitch.addEventListener("click" , () =>{
+            body.classList.toggle("dark");
+            
+            if(body.classList.contains("dark")){
+                modeText.innerText = "Modo Claro";
+            }else{
+                modeText.innerText = "Modo Escuro";
+            }
+        });
     </script>
 
 </body>
