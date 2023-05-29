@@ -389,15 +389,24 @@ body.dark .switch::before{
 }
 
 .home .button {
-    border-width: 1px;
-    padding: 2px;
-    border-radius: 6px;
-    transition-duration: 0.3s;
+    align-self: center;
+    width: auto;
+    height: auto;
+    background-color: var(--body-color);
+    color: var(--text-color) ;
+    border-radius: 10em;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 4px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 0 0 var(--border-color);
 }
 
 .home .button:hover {
-    background-color: var(--primary-color); /* Green */
-    color: white;
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 2px 5px 0 0 var(--border-color);
 }
 
 .home .card{
