@@ -396,7 +396,7 @@ body.dark .switch::before{
     background-color: var(--body-color);
     color: var(--text-color) ;
     border-radius: 10em;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 400;
     padding: 4px 20px;
     cursor: pointer;

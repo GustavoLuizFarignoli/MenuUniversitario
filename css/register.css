@@ -131,14 +131,14 @@
 
 .registerbtn {
     align-self: center;
-    width: 200px;
-    margin-top: 10px;
+    width: auto;
+    height: auto;
     background-color: var(--body-color);
     color: var(--text-color) ;
     border-radius: 10em;
     font-size: 17px;
-    font-weight: 600;
-    padding: 1em 2em;
+    font-weight: 400;
+    padding: 4px 20px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     border: 1px solid var(--border-color);
