@@ -132,7 +132,7 @@
                         # src="data:image/jpeg;base64,' . base64_encode($row['Imagem']) .' "
                         echo '
                         <div style="display: flex; flex-direction:row">
-                            <a href="estabelecimento.php?id='.$row['id'].'"><img class="ibagem" src="getImage.php?id=' . $row['id']  .'"></a>
+                            <img class="ibagem" src="getImage.php?id=' . $row['id']  .'">
                             <div style="padding-top: 20px;">
                                 <span class="text nav-text" style="margin:15px">'. $row['Nome'] . '</span>
                                     <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
@@ -172,7 +172,10 @@
                                                 </div>';
                                             }
                                         } else {
-                                            echo '<span class="modo-text text-cardapio">Não há produtos cadastro para esse estabelecimento</span>';
+                                            echo '
+                                            <div class="text-404-titulo">404 Não encontrado</div>
+                                            <div class="text-404-texto">Este cardápio ainda não existe ou não foi encontrado :(</div>
+                                            <div class="text-404-texto">Não deixe de conferir as outras opções disponíveis no campus.</div>';
                                         }
                                     echo '
                                     </dialog>
@@ -181,7 +184,7 @@
                     } else {
                         echo '
                         <div style="display: flex; flex-direction:row-reverse">
-                        <a href="estabelecimento.php?id='.$row['id'].'"><img class="ibagem" src="getImage.php?id=' . $row['id']  .'"></a>
+                        <img class="ibagem" src="getImage.php?id=' . $row['id']  .'">
                             <div style="padding-top: 20px;">
                                 <span class="text nav-text" style="margin:15px">'. $row['Nome'] . '</span>
                                     <ul style="color: var(--text-color); font-size: 20px; margin: 15px">
@@ -191,7 +194,7 @@
                                     </ul>
                                     <button class="button" onclick="openmodal('.  $row['id'] .')">Consultar cardápio</button>
                                     <dialog id="'. $row['id'] .'">
-                                        <button class="button" onclick="fecharmodal('.  $row['id'] .')">Fechar</button>
+                                        <button class="button-fechar" onclick="fecharmodal('.  $row['id'] .')">x</button>
                                         <div class="text-cardapio-titulo">'. $row['Nome'] . '</div>';
                                         $idb = $row['id'];
                                         $sql2 = "SELECT * FROM produto WHERE fk_Estabelecimento_id = '$idb'";
@@ -220,6 +223,11 @@
                                                     </li>
                                                 </div>';
                                             }
+                                        } else {
+                                            echo '
+                                            <div class="text-404-titulo">404 Não encontrado</div>
+                                            <div class="text-404-texto">Este cardápio ainda não existe ou não foi encontrado :(</div>
+                                            <div class="text-404-texto">Não deixe de conferir as outras opções disponíveis no campus.</div>';
                                         }
                                     echo '
                                     </dialog>
