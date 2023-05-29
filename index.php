@@ -117,13 +117,6 @@
     <section class="home">
         <div class="text">Bem Vindo ao Menu Universitário</div>
 
-        <button class="button">Consultar cardápio</button>
-        <dialog>
-            <button class="button-fechar">x</button>
-            <div class="text-404-titulo">404 Não encontrado</div>
-            <div class="text-404-texto">Este cardápio ainda não existe ou não foi encontrado :(</div>
-            <div class="text-404-texto">Não deixe de conferir as outras opções disponíveis no campus.</div>
-        </dialog>
     </section>
 
     <script>

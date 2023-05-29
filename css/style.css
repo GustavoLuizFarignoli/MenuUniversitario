@@ -377,6 +377,7 @@ body.dark .switch::before{
 }
 
 .home .button-fechar {
+    position: fixed;
     border-width: 1px;
     padding: 5px 15px;
     border-radius: 6px;
