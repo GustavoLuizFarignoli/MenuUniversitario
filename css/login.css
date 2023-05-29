@@ -56,14 +56,14 @@ form {
 
 .button {
   align-self: center;
-  width: 100px;
-  margin-top: 10px;
+  width: auto;
+  height: auto;
   background-color: #fff;
   color: black ;
   border-radius: 10em;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 1em 2em;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 4px 20px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   border: 1px solid var(--border-color);
