@@ -362,9 +362,37 @@ body.dark .switch::before{
     padding: 15px 400px;
 }
 
-.home .button {
+.home .text-404-titulo{
+    font-size: 50px;
+    font-weight: 500;
+    color: var(--primary-color);
+    padding: 5px 200px;
+}
+
+.home .text-404-texto {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 15px 200px;
+}
+
+.home .button-fechar {
+    border-width: 1px;
+    padding: 5px 15px;
     border-radius: 6px;
-    transition-duration: 0.4s;
+    transition-duration: 0.1s;
+}
+
+.home .button-fechar:hover {
+    background-color: #ff1053; /* Green */
+    color: white;
+}
+
+.home .button {
+    border-width: 1px;
+    padding: 2px;
+    border-radius: 6px;
+    transition-duration: 0.3s;
 }
 
 .home .button:hover {

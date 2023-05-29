@@ -142,7 +142,7 @@
                                     </ul>
                                     <button class="button" onclick="openmodal('.  $row['id'] .')">Consultar cardápio</button>
                                     <dialog id="'. $row['id'] .'">
-                                        <button class="button" onclick="fecharmodal('.  $row['id'] .')">Fechar</button>
+                                        <button class="button-fechar" onclick="fecharmodal('.  $row['id'] .')">x</button>
                                         <div class="text-cardapio-titulo">'. $row['Nome'] . '</div>';
                                         $idb = $row['id'];
                                         $sql2 = "SELECT * FROM produto WHERE fk_Estabelecimento_id = '$idb'";

@@ -119,16 +119,10 @@
 
         <button class="button">Consultar cardápio</button>
         <dialog>
-            <button class="button">Fechar</button>
-            <div class="text-cardapio-titulo">[ESTABELECIMENTO]</div>
-            <div class="cardapio-item">
-                <li class="modo-text text-cardapio">
-                    <span class="modo-text text-cardapio">[NOME 1]</span>
-                    <span class="modo-text text-cardapio">[DESCRICAO]</span>
-                    <span class="modo-text text-cardapio">[CATEGORIA]</span>
-                    <span class="modo-text text-cardapio">[PRECO]</span>
-                </li>
-            </div>
+            <button class="button-fechar">x</button>
+            <div class="text-404-titulo">404 Não encontrado</div>
+            <div class="text-404-texto">Este cardápio ainda não existe ou não foi encontrado :(</div>
+            <div class="text-404-texto">Não deixe de conferir as outras opções disponíveis no campus.</div>
         </dialog>
     </section>
 
