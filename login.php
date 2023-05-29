@@ -34,8 +34,8 @@
                     if(isset($_SESSION["user"])){
                         echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">'. $nome .'</span>' . '</a>' .'</li>';
                     } else {
-                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text"></span>' . '</a>' .'</li>';
-                    } 
+                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                    }  
                 ?>
                 <li class="search-box">
                     <i class='bx bx-search icon-pesquisar'></i>
@@ -106,13 +106,6 @@
                         <span class="switch"></span>
                     </div>
                 </li>
-                <?php
-                    if(isset($_SESSION["user"])){
-                        echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
-                    } else {
-                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
-                    } 
-                ?>
             </div>
         </div>
         </div>

@@ -2,17 +2,18 @@
 <html lang="en">
     <?php 
     session_start();
-
-    include('connection.php');
+    if(isset($_SESSION["user"])){
+        include('connection.php');
     
-    $email = $_SESSION["user"];
+        $email = $_SESSION["user"];
 
-    $sql = "SELECT Nome FROM usuario WHERE E_mail = '$email'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()){
-            $nome = $row['Nome'];
+        $sql = "SELECT Nome FROM usuario WHERE E_mail = '$email'";
+        $result = $conn->query($sql);
+    
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()){
+                $nome = $row['Nome'];
+            }
         }
     }
 ?>
@@ -50,8 +51,8 @@
                     if(isset($_SESSION["user"])){
                         echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">'. $nome .'</span>' . '</a>' .'</li>';
                     } else {
-                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text"></span>' . '</a>' .'</li>';
-                    } 
+                        echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
+                    }  
                 ?>
                 <li class="search-box">
                     <i class='bx bx-search icon-pesquisar'></i>
