@@ -136,32 +136,71 @@
     <section class="home_pes">
         <form class="form">
 
-        <div class="mydict">
-	        <div class="input-container">
-		        <label><input type="radio" name="radio" checked="">
-			    <span>Vegano</span></label>
-		        
-                <label><input type="radio" name="radio">
-			    <span>Vegetariano</span></label>
-		        
-                <label><input type="radio" name="radio">
-                <span>Promoção</span></label>
-		    </div>
+            <div class="mydict">
+                <div class="input-container">
+                    <label><input type="radio" name="radiocat" >
+                    <span>Vegano</span></label>
+                    
+                    <label><input type="radio" name="radiocat">
+                    <span>Vegetariano</span></label>
+                    
+                    <label><input type="radio" name="radiocat">
+                    <span>Promoção</span></label>
 
-	        <div class="input-container">
-		        <label><input type="radio" name="radio" checked="">
-			    <span>Bloco</span></label>
-		        
-                <label><input type="radio" name="radio">
-			    <span>Estabelecimento</span></label>
-		        
-                <label><input type="radio" name="radio">
-                <span>Nenhum</span></label>
-		    </div>
-        </div>
+                        <label><input type="radio" name="radiocat" checked="">
+                        <span>Nenhum</span></label>
+                </div>
+
+                <div class="input-container">
+                    <label for="blocos">Bloco</label>
+
+                        <select name="blocos" id="blocos">
+                            <option value="0">Nenhum</option>
+                            <?php
+                                include('connection.php');
+
+                                $sql = "SELECT * FROM bloco";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()){
+                                        echo '<option value="'.$row['Numero'].'">'.$row['Nome'].'</option>';
+                                    }
+                                }
+
+                            ?>
+                        </select>
+
+                    <label for="estabelecimento">Estabelecimento</label>
+                        <select name="estabelecimento" id="estabelecimento">
+                        <option value="0">Nenhum</option>
+                        <?php
+                            include('connection.php');
+
+                            $sql = "SELECT Nome, id, fk_Bloco_Numero FROM estabelecimento";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()){
+
+                                    $idbloco = $row['fk_Bloco_Numero'];
+                                    
+                                    $sql2 = "SELECT Nome FROM bloco WHERE Numero = '$idbloco'";
+                                    $result2 = $conn->query($sql2);
+                                    if ($result2->num_rows > 0) {
+                                        while ($row2 = $result2->fetch_assoc()){
+                                            echo '<option value="'.$row['id'].'">'.$row['Nome'].' - Bloco '. $row2['Nome'] .'</option>';
+                                        }
+                                    }
+                                }
+                            }
+                        ?>
+                        </select> 
+                </div>
+            </div>
 
         <div class="input-container">
-            <input type="text" required="" autocomplete="off" placeholder="Busca no MU">
+            <input type="text" autocomplete="off" placeholder="Busca no MU">
         </div> 
 
             <button type="submit" class="submit"> Buscar </button>     
