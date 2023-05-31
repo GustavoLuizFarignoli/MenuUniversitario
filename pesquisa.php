@@ -3,43 +3,29 @@
     <?php
         session_start();
         if(isset($_SESSION["user"])){
-
             include('connection.php');
-
+        
             $email = $_SESSION["user"];
 
-            $sql = "SELECT Nome, fk_Tipo_de_Usuario_id  FROM usuario WHERE E_mail = '$email'";
+            $sql = "SELECT Nome FROM usuario WHERE E_mail = '$email'";
             $result = $conn->query($sql);
         
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()){
                     $nome = $row['Nome'];
-                    $tipo = $row['fk_Tipo_de_Usuario_id'];
                 }
             }
-
-            if ($tipo == 2){
-                header('Location: paginadogerente.php'); // essa página ainda precisa ser implementada
-            }
-
-            if ($tipo == 3){
-                header('Location: paginadoadm.php'); // essa página ainda precisa ser implementada
-            }
-
-        } else {
-            $message = "Por favor, Faça seu login primeiro!";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-            echo "<script type='text/javascript'>window.location.href = 'login.php';</script>";
         }
     ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bloco.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/bloco.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pesquisa.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <title><?php echo $nome . " - Menu Universitário"; ?></title>
+    <title>Menu Universitário</title>
     <link rel="icon" type="image/x-icon" href="./imagens/u.png">
 </head>
 <body>
@@ -61,21 +47,22 @@
 
         <div class="menu-bar">
             <div class="menu">
-            <?php
+                <?php
                     if(isset($_SESSION["user"])){
-                        echo '<li class="">' . '<a href="destruirsession.php">' . "<i class='bx bx-log-out icon-sair' >" . '</i>' . '<span class="text nav-text">'. $nome .'</span>' . '</a>' .'</li>';
+                        echo '<li class="">' . '<a href="paginadousuario.php">' . "<i class='bx bx-user icon-login' >" . '</i>' . '<span class="text nav-text">'. $nome .'</span>' . '</a>' .'</li>';
                     } else {
                         echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
                     } 
                 ?>
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="pesquisa.php">
+                        <a href="">
                         <i class='bx bx-search icon-pesquisar'></i>
                         <span class="text nav-text">Pesquisa</span>
                         </a>
                     </li>
-                    
+
+                
                     <li class="nav-link">
                         <a href="index.php">
                             <i class='bx bx-home-alt icon-home' ></i>
@@ -139,19 +126,50 @@
                         <span class="switch"></span>
                     </div>
                 </li>
+                
             </div>
+        </div>
         </div>
 
     </nav>
 
-    <section class="home">
-        <div class="text"><?php echo "Bem vindo " . $nome . " ;D"; ?></div> <!-- Tag php dentro da div pega o nome do usuário e escreve como texto -->
-        <div class="text"><?php echo "E-mail:  " . $email; ?></div> <!-- Tag php dentro da div pega o nome do usuário e escreve como texto -->
-        <button onclick="editar()">Editar Senha</button>
-        <button style="background-color:red" onclick="deletar()">Excluir Conta</button>
+    <section class="home_pes">
+        <form class="form">
+
+        <div class="mydict">
+	        <div class="input-container">
+		        <label><input type="radio" name="radio" checked="">
+			    <span>Vegano</span></label>
+		        
+                <label><input type="radio" name="radio">
+			    <span>Vegetariano</span></label>
+		        
+                <label><input type="radio" name="radio">
+                <span>Promoção</span></label>
+		    </div>
+
+	        <div class="input-container">
+		        <label><input type="radio" name="radio" checked="">
+			    <span>Bloco</span></label>
+		        
+                <label><input type="radio" name="radio">
+			    <span>Estabelecimento</span></label>
+		        
+                <label><input type="radio" name="radio">
+                <span>Nenhum</span></label>
+		    </div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" required="" autocomplete="off" placeholder="Busca no MU">
+        </div> 
+
+            <button type="submit" class="submit"> Buscar </button>     
+        
+        </form>
     </section>
 
-    <script>
+    <script>    
         const body = document.querySelector('body'),
         sidebar = body.querySelector('nav'),
         toggle = body.querySelector(".toggle"),
@@ -159,6 +177,9 @@
         modeSwitch = body.querySelector(".toggle-switch"),
         modeText = body.querySelector(".mode-text");
 
+        const button = document.querySelector("button");
+        const modal = document.querySelector("dialog");
+        const buttonClose = document.querySelector("dialog button")
 
         toggle.addEventListener("click" , () =>{
             sidebar.classList.toggle("close");
@@ -179,15 +200,9 @@
             }
         });
 
-        function deletar(){
-            if(confirm("Deseja excluir sua conta ? Essa ação é irreversivel")){
-                alert("Conta excluida!")
-                window.location.href = "action_delete.php" //envia para código que fara exclusão da conta
-            }
-        }
-        function editar(){
-            window.location.href = "editar.php" //envia para código que fara exclusão da conta
-        }
+        buttonClose.onclick = function () {
+            modal.close();
+        };
     </script>
 
 </body>

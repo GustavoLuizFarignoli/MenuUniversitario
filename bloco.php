@@ -54,12 +54,13 @@
                         echo '<li class="">' . '<a href="login.php">' . "<i class='bx bx-log-in'>" . '</i>' . '<span class="text nav-text">Login</span>' . '</a>' .'</li>';
                     }  
                 ?>
-                <li class="search-box">
-                    <i class='bx bx-search icon-pesquisar'></i>
-                    <input type="text" placeholder="Pesquisar...">
-                </li>
-
-                <ul class="menu-links">
+            <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="pesquisa.php">
+                        <i class='bx bx-search icon-pesquisar'></i>
+                        <span class="text nav-text">Pesquisa</span>
+                        </a>
+                    </li>
                     <li class="nav-link">
                         <a href="index.php">
                             <i class='bx bx-home-alt icon-home' ></i>
