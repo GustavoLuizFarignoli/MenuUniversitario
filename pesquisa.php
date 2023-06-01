@@ -154,7 +154,7 @@
                 <div class="input-container">
                     <label for="blocos">Bloco</label>
 
-                        <select name="blocos" id="blocos">
+                        <select name="blocos" id="blocos" onchange="atualizarestabelecimento()">
                             <option value="0">Nenhum</option>
                             <?php
                                 include('connection.php');
@@ -172,7 +172,7 @@
                         </select>
 
                     <label for="estabelecimento">Estabelecimento</label>
-                        <select name="estabelecimento" id="estabelecimento">
+                        <select name="estabelecimento" id="estabelecimento" onchange="atualizarbloco()">
                         <option value="0">Nenhum</option>
                         <?php
                             include('connection.php');
@@ -199,12 +199,16 @@
                 </div>
             </div>
 
-        <div class="input-container">
-            <input type="text" autocomplete="off" placeholder="Busca no MU">
-        </div> 
+            <div class="input-container">
+                <input type="text" autocomplete="off" placeholder="Busca no MU">
+            </div> 
+
+            <label for="preco">Preço Máximo</label>
+            <input type="range" min="0" max="100" value="50" class="slider" id="preco" onchange="displaypreco()">
+            <label id="precotexto" onload="displaypreco()"></label>
 
             <button type="submit" class="submit"> Buscar </button>     
-        
+
         </form>
     </section>
 
@@ -219,6 +223,11 @@
         const button = document.querySelector("button");
         const modal = document.querySelector("dialog");
         const buttonClose = document.querySelector("dialog button")
+
+        var bloco = document.getElementById("blocos");
+        var estabelecimento = document.getElementById("estabelecimento");
+        var slider = document.getElementById("preco");
+        var precotexto = document.getElementById("precotexto");
 
         toggle.addEventListener("click" , () =>{
             sidebar.classList.toggle("close");
@@ -242,6 +251,29 @@
         buttonClose.onclick = function () {
             modal.close();
         };
+
+        function atualizarbloco(){
+            if (!(estabelecimento.value === "0")){
+                bloco.value = "0";
+                bloco.disabled = true;
+            } else {
+                bloco.disabled = false;
+            }
+        }
+
+        function atualizarestabelecimento(){
+            if (!(bloco.value === "0")){
+                estabelecimento.value = "0";
+                estabelecimento.disabled = true;
+            } else {
+                estabelecimento.disabled = false;
+            }
+        }
+
+        function displaypreco(){
+            precotexto.innerHTML = "R$ " + slider.value
+        }
+
     </script>
 
 </body>
