@@ -28,7 +28,7 @@
     <title>Menu Universitário</title>
     <link rel="icon" type="image/x-icon" href="./imagens/u.png">
 </head>
-<body>
+<body onload="displaypreco()">>
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -134,20 +134,20 @@
     </nav>
 
     <section class="home_pes">
-        <form class="form">
+        <form class="form" method="post">
 
             <div class="mydict">
                 <div class="input-container">
-                    <label><input type="radio" name="radiocat" >
+                    <label><input type="radio" name="radiocat" value="1">
                     <span>Vegano</span></label>
                     
-                    <label><input type="radio" name="radiocat">
+                    <label><input type="radio" name="radiocat" value="2">
                     <span>Vegetariano</span></label>
                     
-                    <label><input type="radio" name="radiocat">
+                    <label><input type="radio" name="radiocat" value="3">
                     <span>Promoção</span></label>
 
-                        <label><input type="radio" name="radiocat" checked="">
+                        <label><input type="radio" name="radiocat" value="0" checked="">
                         <span>Nenhum</span></label>
                 </div>
 
@@ -200,16 +200,45 @@
             </div>
 
             <div class="input-container">
-                <input type="text" autocomplete="off" placeholder="Busca no MU">
+                <input type="text" autocomplete="off" placeholder="Busca no MU" name="produto" id="produto">
             </div> 
 
             <label for="preco">Preço Máximo</label>
-            <input type="range" min="0" max="100" value="50" class="slider" id="preco" onchange="displaypreco()">
-            <label id="precotexto" onload="displaypreco()"></label>
+            <input type="range" min="0" max="100" value="100" class="slider" id="preco" name="preco" onchange="displaypreco()">
+            <label id="precotexto"></label>
 
-            <button type="submit" class="submit"> Buscar </button>     
+            <button type="submit" class="submit" name="submit" id="submit"> Buscar </button>     
 
         </form>
+           
+        <div>
+            <?php
+                if(isset($_POST['submit'])){
+                    $categoria = $_POST['radiocat']; //retorna 0,1,2 ou 3
+                    $nomeproduto = $_POST['produto']; //Sempre está setado porém pode ser vazio
+
+                    if(isset($_POST['blocos'])){
+                        $bloco = $_POST['blocos']; //retorna um valor de 0 a 10 (o id do bloco, zero sendo o valor nulo);
+                    } else {
+                        $bloco = 0;
+                    }
+
+                    if(isset($_POST['estabelecimento'])){
+                        $estabelecimento = $_POST['estabelecimento']; //retorna um valor de 0 a 12 (o id do estabelecimento, zero sendo o valor nulo)
+                    } else {
+                        $estabelecimento  = 0;
+                    }
+
+                    if(isset($_POST['preco'])){
+                        $preco = $_POST['preco']; //retorna o valor do slider se o usuário não alterar ele é não é setado
+                    } else {
+                        $preco = 100; //Settar o valor para 100 pois todos os valores estão abaixo dos 100 reais e por ser o valor padrão do slider
+                    }
+                    echo $preco;
+
+                }
+            ?>
+        </div>
     </section>
 
     <script>    
