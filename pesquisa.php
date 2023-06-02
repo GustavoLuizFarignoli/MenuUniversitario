@@ -138,6 +138,9 @@
 
             <div class="mydict">
                 <div class="input-container">
+                    <label><input type="radio" name="radiocat" value="0" checked="">
+                    <span>Nenhum</span></label>
+
                     <label><input type="radio" name="radiocat" value="1">
                     <span>Vegano</span></label>
                     
@@ -146,9 +149,6 @@
                     
                     <label><input type="radio" name="radiocat" value="3">
                     <span>Promoção</span></label>
-
-                        <label><input type="radio" name="radiocat" value="0" checked="">
-                        <span>Nenhum</span></label>
                 </div>
 
                 <div class="input-container">
@@ -202,37 +202,103 @@
             </div> 
 
             <label for="preco">Preço Máximo</label>
-            <input type="range" min="0" max="100" value="100" class="slider" id="preco" name="preco" onchange="displaypreco()" >
+            <input type="range" min="0" max="100" value="100" class="slider" id="preco" name="preco" onchange="displaypreco()">
             <label id="precotexto"></label>
 
             <button type="submit" class="submit" name="submit" id="submit"> Buscar </button>     
 
         </form>
            
-        <div>
+        <div style="display: flex; flex-direction: column; align-items: center;">
             <?php
                 if(isset($_POST['submit'])){
+                    $numfiltros = 5;
+                    $filtros = array();
+                    $searchbloco = FALSE;
+                    $sql = "SELECT * FROM produto";
+
                     $categoria = $_POST['radiocat']; //retorna 0,1,2 ou 3
+                    if ($categoria == 0){
+                        $numfiltros -= 1;
+                    } else {
+                        $filtros[] = "fk_Categoria_id_categoria = '$categoria'";
+                    }
+
                     $nomeproduto = $_POST['produto']; //Sempre está setado porém pode ser vazio
+                    if (empty($nomeproduto)){
+                        $numfiltros -= 1;
+                    } else {
+                        $filtros[] = "Nome LIKE '%$nomeproduto%'";
+                    }
 
                     if(isset($_POST['blocos'])){
                         $bloco = $_POST['blocos']; //retorna um valor de 0 a 10 (o id do bloco, zero sendo o valor nulo);
+                        if ($bloco == 0){
+                            $numfiltros -= 1;
+                        } else {
+                            $searchbloco = TRUE;
+                        }
                     } else {
-                        $bloco = 0;
+                        $numfiltros -=1;
                     }
 
                     if(isset($_POST['estabelecimento'])){
                         $estabelecimento = $_POST['estabelecimento']; //retorna um valor de 0 a 12 (o id do estabelecimento, zero sendo o valor nulo)
+                        if ($estabelecimento == 0){
+                            $numfiltros -= 1;
+                        } else {
+                            $filtros[] = "fk_Estabelecimento_id = '$estabelecimento'";
+                        }
                     } else {
-                        $estabelecimento  = 0;
+                        $numfiltros -=1;
                     }
 
-                    if(isset($_POST['preco'])){
-                        $preco = $_POST['preco']; //retorna o valor do slider se o usuário não alterar ele é não é setado
-                    } else {
-                        $preco = 100; //Settar o valor para 100 pois todos os valores estão abaixo dos 100 reais e por ser o valor padrão do slider
+                    $preco = $_POST['preco']; //retorna o valor do slider se o usuário não vem o valor padrão do slider
+                    $filtros[] = "Preco <= $preco";
+
+                    if (!empty($filtros)) {
+                        $sql .= " WHERE " . implode(" AND ", $filtros);
                     }
-                    echo $preco;
+                    
+
+                    if ($numfiltros === 0){
+                        $message = "Por favor selecione algum filtro para pesquisar por produtos";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                    } else {
+                        echo '
+                            <button class="button" onclick="openmodal(1)">Ver Resultados</button>
+                            <dialog id="1">
+                                <button class="button-fechar" onclick="fecharmodal(1)">x</button>
+                                <div class="text-cardapio-titulo">Resultados da Pesquisa</div>';
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()){
+                                echo '
+                                    <div class="cardapio-item">
+                                        <li class="modo-text text-cardapio">
+                                                <span class="modo-text text-cardapio">'.  $row['Nome'] .'</span>
+                                                <span class="modo-text text-cardapio">Preço: R$'. $row['Preco'] .'</span>';
+                                                if (isset($row['Descrição'])){
+                                                    echo '<span class="modo-text text-cardapio">Sabores: '. $row['Descrição'] .'</span>';
+                                                }
+                                                if (isset($row['fk_Categoria_id_categoria'])){
+                                                            $categoria = $row['fk_Categoria_id_categoria'];
+                                                            $sql3 = "SELECT * FROM categoria WHERE id_categoria = '$categoria'";
+                                                            $result3 = $conn->query($sql3);
+                                                    if ($result3->num_rows > 0) {
+                                                            while ($row3 = $result3->fetch_assoc()){
+                                                                echo '<span class="modo-text text-cardapio">Categoria: '. $row3['Nome_categoria'] .'</span>';
+                                                            }
+                                                    }
+                                                }
+                                        echo '
+                                        </li>';   
+                            }
+                        }
+                        echo '
+                            </div>
+                        </dialog>'; 
+                    }
 
                 }
             ?>
@@ -246,10 +312,6 @@
         searchBtn = body.querySelector(".search-box"),
         modeSwitch = body.querySelector(".toggle-switch"),
         modeText = body.querySelector(".mode-text");
-
-        const button = document.querySelector("button");
-        const modal = document.querySelector("dialog");
-        const buttonClose = document.querySelector("dialog button")
 
         var bloco = document.getElementById("blocos");
         var estabelecimento = document.getElementById("estabelecimento");
@@ -275,7 +337,14 @@
             }
         });
 
-        buttonClose.onclick = function () {
+        function openmodal (parameter1) {
+            console.log("testes")
+            modal = document.getElementById(parameter1)
+            modal.showModal();
+        };
+
+        function fecharmodal(parameter2) {
+            modal = document.getElementById(parameter2)
             modal.close();
         };
 
@@ -300,7 +369,6 @@
         function displaypreco(){
             precotexto.innerHTML = "R$ " + slider.value
         }
-
     </script>
 
 </body>

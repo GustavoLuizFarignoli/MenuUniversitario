@@ -141,3 +141,84 @@
   -webkit-appearance: none;
   appearance: none;
 }
+
+dialog{
+  background-color: var(--body-color);
+}
+
+.text {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 12px 60px;
+}
+
+.text-cardapio {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 15px 30px;
+}
+
+.text-cardapio-titulo {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 15px 400px;
+}
+
+.text-404-titulo{
+  font-size: 50px;
+  font-weight: 500;
+  color: var(--primary-color);
+  padding: 5px 200px;
+}
+
+.text-404-texto {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 15px 200px;
+}
+
+.button-fechar {
+  position: fixed;
+  border-width: 1px;
+  padding: 5px 15px;
+  border-radius: 6px;
+  transition-duration: 0.1s;
+}
+
+.button-fechar:hover {
+  background-color: #ff1053; /* Green */
+  color: white;
+}
+
+.button {
+  align-self: center;
+  width: auto;
+  height: auto;
+  background-color: var(--body-color);
+  color: var(--text-color) ;
+  border-radius: 10em;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 4px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 0 0 var(--border-color);
+}
+
+.button:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 var(--border-color);
+}
+
+.card{
+  padding: 12px 60px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-left:10px;
+}
