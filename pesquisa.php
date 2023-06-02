@@ -152,10 +152,9 @@
                 </div>
 
                 <div class="input-container">
-                    <label for="blocos">Bloco</label>
 
-                        <select name="blocos" id="blocos" onchange="atualizarestabelecimento()">
-                            <option value="0">Nenhum</option>
+                        <select name="blocos" id="blocos" onchange="atualizarestabelecimento()" class="select">
+                            <option value="0">Bloco</option>
                             <?php
                                 include('connection.php');
 
@@ -171,9 +170,8 @@
                             ?>
                         </select>
 
-                    <label for="estabelecimento">Estabelecimento</label>
-                        <select name="estabelecimento" id="estabelecimento" onchange="atualizarbloco()">
-                        <option value="0">Nenhum</option>
+                        <select name="estabelecimento" id="estabelecimento" onchange="atualizarbloco()" class="select">
+                        <option value="0">Estabelecimento</option>
                         <?php
                             include('connection.php');
 
@@ -204,7 +202,7 @@
             </div> 
 
             <label for="preco">Preço Máximo</label>
-            <input type="range" min="0" max="100" value="100" class="slider" id="preco" name="preco" onchange="displaypreco()">
+            <input type="range" min="0" max="100" value="100" class="slider" id="preco" name="preco" onchange="displaypreco()" >
             <label id="precotexto"></label>
 
             <button type="submit" class="submit" name="submit" id="submit"> Buscar </button>     
