@@ -52,7 +52,7 @@ body.dark{
     width: 270px;
     padding: 10px 14px;
     background: var(--sidebar-color); /* var(--sidebar-color) */
-    border-right: 0.5px solid var(--border-color);
+    border-right:none;
     backdrop-filter: blur(1000px);
     transition: var(--tran-05);
     z-index: 100;  
@@ -120,6 +120,7 @@ body.dark{
     font-size: 17px;
     font-weight: 500;
     white-space: nowrap;
+    padding: 12px 7px;
     opacity: 1;
 }
 .sidebar.close .text{
@@ -344,8 +345,8 @@ body.dark .switch::before{
 .home .text {
     font-size: 30px;
     font-weight: 500;
-    color: var(--text-color);
-    padding: 12px 60px;
+    color: var(--primary-color);
+    padding: 12px -20px;
 }
 
 .home .text-cardapio {
@@ -358,7 +359,7 @@ body.dark .switch::before{
 .home .text-cardapio-titulo {
     font-size: 30px;
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--primary-color);
     padding: 15px 400px;
 }
 
@@ -401,13 +402,13 @@ body.dark .switch::before{
     padding: 4px 20px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--primary-color);
     box-shadow: 0 0 0 0 var(--border-color);
 }
 
 .home .button:hover {
     transform: translateY(-4px) translateX(-2px);
-    box-shadow: 2px 5px 0 0 var(--border-color);
+    box-shadow: 2px 5px 0 0 var(--primary-color);
 }
 
 .home .card{

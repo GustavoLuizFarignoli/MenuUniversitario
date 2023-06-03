@@ -65,7 +65,7 @@
     background-color: #fff;
     display: block;
     padding: 1rem;
-    width: 30%;
+    width: 35%;
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     align-items: center;
@@ -78,10 +78,10 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  
 }
 
-.input-container input, .form button {
+.input-container input,
+.form button {
   outline: none;
   border: 2px solid #695CFE;
   margin: 8px 0;
@@ -106,7 +106,7 @@
   padding-bottom: 0.75rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-  background-color: #695CFE;
+  background-color: var(--primary-color);
   color: #ffffff;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -114,6 +114,12 @@
   width: 100%;
   border-radius: 0.5rem;
   text-transform: uppercase;
+}
+
+.submit:hover{
+  background-color: inherit;
+  color: var(--primary-color);
+  transition: 0.2s;
 }
 
 .signup-link {
@@ -128,12 +134,14 @@
 }
 
 .select {  
+  margin: 2.5px;
   background-color:#695CFE;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20448%22%20enable-background%3D%22new%200%200%20256%20448%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E.arrow%7Bfill%3A@{arrow}%3B%7D%3C%2Fstyle%3E%3Cpath%20class%3D%22arrow%22%20d%3D%22M255.9%20168c0-4.2-1.6-7.9-4.8-11.2-3.2-3.2-6.9-4.8-11.2-4.8H16c-4.2%200-7.9%201.6-11.2%204.8S0%20163.8%200%20168c0%204.4%201.6%208.2%204.8%2011.4l112%20112c3.1%203.1%206.8%204.6%2011.2%204.6%204.4%200%208.2-1.5%2011.4-4.6l112-112c3-3.2%204.5-7%204.5-11.4z%22%2F%3E%3C%2Fsvg%3E%0A");
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: auto 50%;
   border:none;
+  border-radius: 0.5px;
   color: #ffffff;
   padding: 10px 30px 10px 10px;
   outline: none;
@@ -149,7 +157,7 @@ dialog{
 .text {
   font-size: 30px;
   font-weight: 500;
-  color: var(--text-color);
+  color: var(--primary-color);
   padding: 12px 60px;
 }
 
@@ -161,15 +169,16 @@ dialog{
 }
 
 .text-cardapio-titulo {
+  display: inline-block;
   font-size: 30px;
   font-weight: 500;
-  color: var(--text-color);
+  color: var(--primary-color);
   padding: 15px 400px;
 }
 
 .text-404-titulo{
   font-size: 50px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--primary-color);
   padding: 5px 200px;
 }
@@ -195,6 +204,7 @@ dialog{
 }
 
 .button {
+  margin: 10px;
   align-self: center;
   width: auto;
   height: auto;
@@ -206,13 +216,13 @@ dialog{
   padding: 4px 20px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--primary-color);
   box-shadow: 0 0 0 0 var(--border-color);
 }
 
 .button:hover {
   transform: translateY(-4px) translateX(-2px);
-  box-shadow: 2px 5px 0 0 var(--border-color);
+  box-shadow: 2px 5px 0 0 var(--primary-color);
 }
 
 .card{

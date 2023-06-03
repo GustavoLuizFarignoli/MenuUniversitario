@@ -66,7 +66,7 @@ form {
   padding: 4px 20px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--text-color);
   box-shadow: 0 0 0 0 var(--border-color);
   font-family: 'Poppins', sans-serif;
   
@@ -74,7 +74,7 @@ form {
 
 .button:hover {
   transform: translateY(-4px) translateX(-2px);
-  box-shadow: 2px 5px 0 0 var(--border-color);
+  box-shadow: 2px 5px 0 0 var(--primary-color);
 };
 
 .button:active {
