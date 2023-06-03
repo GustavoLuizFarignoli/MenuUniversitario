@@ -204,6 +204,7 @@
             <label for="preco">Preço Máximo</label>
             <input type="range" min="0" max="100" value="100" class="slider" id="preco" name="preco" onchange="displaypreco()">
             <label id="precotexto"></label>
+            <input type="checkbox" onchange="checkfiltropreco()" checked>
 
             <button type="submit" class="submit" name="submit" id="submit"> Buscar </button>     
 
@@ -253,8 +254,13 @@
                         $numfiltros -=1;
                     }
 
-                    $preco = $_POST['preco']; //retorna o valor do slider se o usuário não vem o valor padrão do slider
-                    $filtros[] = "Preco <= $preco";
+                    if(isset($_POST['preco'])){
+                        $preco = $_POST['preco']; //retorna o valor do slider se o usuário não vem o valor padrão do slider
+                        $filtros[] = "Preco <= $preco";
+                    } else {
+                        $numfiltros -= 1;
+                    }
+                    
 
                     if (!empty($filtros)) {
                         $sql .= " WHERE " . implode(" AND ", $filtros);
@@ -273,6 +279,22 @@
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()){
+                                $idestabelecimento = $row['fk_Estabelecimento_id'];
+                                if ($searchbloco){
+                                    $inbloco = FALSE;
+                                    $sql2 = "SELECT * FROM estabelecimento WHERE id = '$idestabelecimento'";
+                                    $result2 = $conn->query($sql2);
+                                    if ($result2->num_rows > 0){
+                                        while ($row2 = $result2->fetch_assoc()){
+                                            if($row2['fk_Bloco_Numero'] == $bloco){
+                                                $inbloco = TRUE;
+                                            }
+                                        }
+                                    }
+                                }
+                                if (isset($inbloco) && $inbloco == FALSE){
+                                    continue;
+                                }
                                 echo '
                                     <div class="cardapio-item">
                                         <li class="modo-text text-cardapio">
@@ -291,9 +313,22 @@
                                                             }
                                                     }
                                                 }
+                                                $sql4 = "SELECT Nome FROM estabelecimento WHERE id = '$idestabelecimento'";
+                                                $result4 = $conn->query($sql4);
+                                                if ($result4->num_rows > 0) {
+                                                    while ($row4 = $result4->fetch_assoc()){
+                                                        echo '<span class="modo-text text-cardapio">Estabelecimento: '. $row4['Nome'] .'</span>';
+                                                    }
+                                                }
                                         echo '
                                         </li>';   
+                                
                             }
+                        }else {
+                            echo '
+                            <div class="text-404-titulo">0 Resultados encontrados</div>
+                            <div class="text-404-texto">Nenhum produto correspondente aos filtros utilizados</div>
+                            <div class="text-404-texto">Revise sua pesquisa e tente novamente</div>';
                         }
                         echo '
                             </div>
@@ -369,6 +404,15 @@
         function displaypreco(){
             precotexto.innerHTML = "R$ " + slider.value
         }
+
+        function checkfiltropreco(){
+            if(slider.disabled){
+                slider.disabled = false;
+            } else {
+                slider.disabled = true;
+            }
+        }
+
     </script>
 
 </body>
