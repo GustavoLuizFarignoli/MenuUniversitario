@@ -1,11 +1,28 @@
 <?php
-    $servername = "localhost:3307";
+    /* Molec */ 
+    $servername = "localhost:3306";
     $username = "root";
-    #$password = "@BES123";
-    #$username = "desenvolvedor";
     $password = "";
     $dbname = "mu";
 
+    /* Vittorio - Connection
+    $servername = "localhost:3307";
+    $username = "desenvolvedor";
+    $password = "Bes@2022#";
+    $dbname = "mu";
+    */
+    /* Gustavo - Connection
+    $servername = "localhost";
+    $username = "desenvolvedor";
+    $password = "Bes@2022#";
+    $dbname = "mu";
+    */
+    /* Breno - Connection
+    $servername = "localhost:3307";
+    $username = "root";
+    $password = "";
+    $dbname = "mu";
+    */
     try{
         $conn = new mysqli($servername, $username, $password, $dbname);
     } catch(Exception $e){
