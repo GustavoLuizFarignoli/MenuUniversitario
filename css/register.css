@@ -141,13 +141,13 @@
     padding: 4px 20px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--primary-color);
     box-shadow: 0 0 0 0 var(--border-color);
 }
   
 .registerbtn:hover {
     transform: translateY(-4px) translateX(-2px);
-    box-shadow: 2px 5px 0 0 var(--border-color);
+    box-shadow: 2px 5px 0 0 var(--primary-color);
 };
   
 .registerbtn:active {
