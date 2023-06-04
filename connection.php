@@ -1,15 +1,15 @@
 <?php
-    /* Molec 
+    /* Molec*/ 
     $servername = "localhost:3306";
     $username = "root";
     $password = "";
-    $dbname = "mu";*/ 
+    $dbname = "mu";
 
-    /*Vittorio - Connection*/ 
+    /*Vittorio - Connection
     $servername = "localhost:3307";
     $username = "desenvolvedor";
     $password = "Bes@2022#";
-    $dbname = "mu";
+    $dbname = "mu";*/ 
     
     /* Gustavo - Connection
     $servername = "localhost";
