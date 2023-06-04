@@ -134,7 +134,6 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id`, `Nome`, `Preco`, `Descrição`, `fk_Estabelecimento_id`, `fk_Categoria_id_categoria`) VALUES
-INSERT INTO `produto` (`id`, `Nome`, `Preco`, `Descrição`, `fk_Estabelecimento_id`, `fk_Categoria_id_categoria`) VALUES
 (1, 'Pão c/ Manteiga', 5.5, NULL, 1, 2),
 (2, 'Queijo Quente', 7.5, NULL, 1, 2),
 (3, 'Misto Quente', 8.5, NULL, 1, 2),
