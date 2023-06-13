@@ -10,12 +10,13 @@ include('connection.php');
 
 $email = $_SESSION["user"];
 
-$sql = "SELECT Nome FROM usuario WHERE E_mail = '$email'";
+$sql = "SELECT Nome, apelido FROM usuario WHERE E_mail = '$email'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()){
         $nome = $row['Nome'];
+        $apelido = $row['apelido'];
     }
 }
 ?>
@@ -174,7 +175,9 @@ if ($result->num_rows > 0) {
         <form action="editar.php" method="post" id="edit" name="edit">
         <div class="container">    
             <div class="group">
-                <input type="text" class="input" name="nome" id="nome" pattern="[a-zA-Z ]*">
+                <?php 
+                echo '<input type="text" class="input" name="nome" id="nome" pattern="[a-zA-Z ]*" value="'. $nome .'">';
+                ?>
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <label><b>Alterar Nome</b></label>

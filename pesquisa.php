@@ -264,6 +264,7 @@
 
                     if (!empty($filtros)) {
                         $sql .= " WHERE " . implode(" AND ", $filtros);
+                        $sql .= " ORDER BY Nome ASC";
                     }
                     
 
@@ -337,6 +338,10 @@
 
                 }
             ?>
+            <script type="text/javascript">
+                modal = document.getElementById(1)
+                modal.showModal();
+            </script>
         </div>
     </section>
 

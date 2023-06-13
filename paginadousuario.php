@@ -147,7 +147,7 @@
     <section class="home">
         <div class="text"><?php echo "Bem vindo " . $nome . " ;D"; ?></div> <!-- Tag php dentro da div pega o nome do usuário e escreve como texto -->
         <div class="text"><?php echo "E-mail:  " . $email; ?></div> <!-- Tag php dentro da div pega o nome do usuário e escreve como texto -->
-        <button onclick="editar()">Editar Senha</button>
+        <button onclick="editar()">Editar Informações</button>
         <button style="background-color:red" onclick="deletar()">Excluir Conta</button>
     </section>
 
