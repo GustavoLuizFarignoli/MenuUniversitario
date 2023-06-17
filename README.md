@@ -1,5 +1,5 @@
 # MenuUniversitario
-Projeto de Exp Criativa 3 Período de Eng de Software, "Breno Sedrez, Gabriel Molec, Gabriel Vink, Gustavo Luiz e Vittorio Caprioli"
+Projeto de Exp Criativa 3 Período de Eng de Software, "Breno Sedrez, Gabriel Molec, Gustavo Luiz e Vittorio Caprioli"
 
 O projeto Menu Universitário foi pensado para resolver um problema que muitos estudantes, 
 veteranos e calouros,funcionários e visitantes enfrentam no campus de Curitiba da PUCPR,
