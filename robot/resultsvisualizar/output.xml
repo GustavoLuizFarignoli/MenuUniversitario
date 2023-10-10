@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20231010 11:36:46.063" rpa="false" schemaversion="4">
+<suite id="s1" name="Casovisualizar" source="C:\xampp\htdocs\MenuUniversitario\robot\casovisualizar.robot">
+<test id="s1-t1" name="Cenário de Teste 1: Visualizar cardápio" line="22">
+<kw name="abrir site">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>http://localhost/MenuUniversitario/index.php</arg>
+<arg>gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231010 11:36:46.204" level="INFO">Opening browser 'gc' to base url 'http://localhost/MenuUniversitario/index.php'.</msg>
+<status status="PASS" starttime="20231010 11:36:46.204" endtime="20231010 11:36:47.555"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231010 11:36:47.555" endtime="20231010 11:36:47.701"/>
+</kw>
+<status status="PASS" starttime="20231010 11:36:46.204" endtime="20231010 11:36:47.701"/>
+</kw>
+<kw name="entrar na página de um bloco">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button_bloco}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231010 11:36:47.701" level="INFO">Clicking element '(//li[@class='nav-link'])[4]'.</msg>
+<status status="PASS" starttime="20231010 11:36:47.701" endtime="20231010 11:36:47.957"/>
+</kw>
+<status status="PASS" starttime="20231010 11:36:47.701" endtime="20231010 11:36:47.957"/>
+</kw>
+<kw name="tirar Screenshot2">
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231010 11:36:48.958" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 11:36:47.957" endtime="20231010 11:36:48.958"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231010 11:36:49.168" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231010 11:36:48.958" endtime="20231010 11:36:49.168"/>
+</kw>
+<status status="PASS" starttime="20231010 11:36:47.957" endtime="20231010 11:36:49.168"/>
+</kw>
+<kw name="selecionar cardápio">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button_cardapio}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231010 11:36:49.168" level="INFO">Clicking element '(//button[text()='Consultar cardápio'])[1]'.</msg>
+<status status="PASS" starttime="20231010 11:36:49.168" endtime="20231010 11:36:49.230"/>
+</kw>
+<status status="PASS" starttime="20231010 11:36:49.168" endtime="20231010 11:36:49.230"/>
+</kw>
+<kw name="tirar Screenshot2">
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231010 11:36:50.232" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 11:36:49.231" endtime="20231010 11:36:50.232"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231010 11:36:50.386" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231010 11:36:50.232" endtime="20231010 11:36:50.386"/>
+</kw>
+<status status="PASS" starttime="20231010 11:36:49.231" endtime="20231010 11:36:50.386"/>
+</kw>
+<kw name="fechar site">
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231010 11:36:51.386" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 11:36:50.386" endtime="20231010 11:36:51.386"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231010 11:36:51.386" endtime="20231010 11:36:53.544"/>
+</kw>
+<status status="PASS" starttime="20231010 11:36:50.386" endtime="20231010 11:36:53.544"/>
+</kw>
+<status status="PASS" starttime="20231010 11:36:46.204" endtime="20231010 11:36:53.544"/>
+</test>
+<status status="PASS" starttime="20231010 11:36:46.063" endtime="20231010 11:36:53.546"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Casovisualizar">Casovisualizar</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

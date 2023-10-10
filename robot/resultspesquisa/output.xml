@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20231010 11:37:04.115" rpa="false" schemaversion="4">
+<suite id="s1" name="Casopesquisa" source="C:\xampp\htdocs\MenuUniversitario\robot\casopesquisa.robot">
+<test id="s1-t1" name="Cenário de Teste 1: Pesquisa com filtro de nome" line="28">
+<kw name="abrir site">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>http://localhost/MenuUniversitario/pesquisa.php</arg>
+<arg>gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231010 11:37:04.264" level="INFO">Opening browser 'gc' to base url 'http://localhost/MenuUniversitario/pesquisa.php'.</msg>
+<status status="PASS" starttime="20231010 11:37:04.264" endtime="20231010 11:37:06.197"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231010 11:37:06.198" endtime="20231010 11:37:06.318"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:04.249" endtime="20231010 11:37:06.318"/>
+</kw>
+<kw name="digitar nome do produto">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${filtro_input_nome}</arg>
+<arg>calzone</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231010 11:37:06.318" level="INFO">Typing text 'calzone' into text field 'id:produto'.</msg>
+<status status="PASS" starttime="20231010 11:37:06.318" endtime="20231010 11:37:06.453"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:06.318" endtime="20231010 11:37:06.453"/>
+</kw>
+<kw name="buscar">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button_submit}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231010 11:37:06.455" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231010 11:37:06.453" endtime="20231010 11:37:06.578"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:06.453" endtime="20231010 11:37:06.579"/>
+</kw>
+<kw name="tirar Screenshot">
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231010 11:37:07.580" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 11:37:06.579" endtime="20231010 11:37:07.580"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231010 11:37:07.730" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231010 11:37:07.580" endtime="20231010 11:37:07.730"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231010 11:37:08.730" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 11:37:07.730" endtime="20231010 11:37:08.730"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:06.579" endtime="20231010 11:37:08.730"/>
+</kw>
+<kw name="fechar site">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231010 11:37:08.730" endtime="20231010 11:37:10.884"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:08.730" endtime="20231010 11:37:10.884"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:04.249" endtime="20231010 11:37:10.884"/>
+</test>
+<test id="s1-t2" name="Cenário de Teste 2: Pesquisa com filtro de categoria" line="34">
+<kw name="abrir site">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>http://localhost/MenuUniversitario/pesquisa.php</arg>
+<arg>gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231010 11:37:10.887" level="INFO">Opening browser 'gc' to base url 'http://localhost/MenuUniversitario/pesquisa.php'.</msg>
+<status status="PASS" starttime="20231010 11:37:10.886" endtime="20231010 11:37:12.693"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231010 11:37:12.693" endtime="20231010 11:37:12.819"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:10.886" endtime="20231010 11:37:12.819"/>
+</kw>
+<kw name="selecionar categoria">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${filtro_categoria}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231010 11:37:12.819" level="INFO">Clicking element '//span[text()='Vegetariano']'.</msg>
+<status status="PASS" starttime="20231010 11:37:12.819" endtime="20231010 11:37:12.871"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:12.819" endtime="20231010 11:37:12.871"/>
+</kw>
+<kw name="buscar">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button_submit}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231010 11:37:12.881" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231010 11:37:12.871" endtime="20231010 11:37:12.987"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:12.871" endtime="20231010 11:37:12.987"/>
+</kw>
+<kw name="tirar Screenshot">
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231010 11:37:13.987" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 11:37:12.987" endtime="20231010 11:37:13.987"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231010 11:37:14.123" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231010 11:37:13.987" endtime="20231010 11:37:14.123"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231010 11:37:15.123" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 11:37:14.123" endtime="20231010 11:37:15.123"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:12.987" endtime="20231010 11:37:15.123"/>
+</kw>
+<kw name="fechar site">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231010 11:37:15.123" endtime="20231010 11:37:17.276"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:15.123" endtime="20231010 11:37:17.277"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:10.885" endtime="20231010 11:37:17.278"/>
+</test>
+<test id="s1-t3" name="Cenário de Teste 3: Pesquisa com filtro de bloco" line="40">
+<kw name="abrir site">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>http://localhost/MenuUniversitario/pesquisa.php</arg>
+<arg>gc</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231010 11:37:17.278" level="INFO">Opening browser 'gc' to base url 'http://localhost/MenuUniversitario/pesquisa.php'.</msg>
+<status status="PASS" starttime="20231010 11:37:17.278" endtime="20231010 11:37:19.439"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231010 11:37:19.439" endtime="20231010 11:37:19.561"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:17.278" endtime="20231010 11:37:19.561"/>
+</kw>
+<kw name="selecionar bloco">
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${filtro_bloco}</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231010 11:37:19.561" level="INFO">Selecting options from selection list '//select[@id='blocos']' by value 2.</msg>
+<status status="PASS" starttime="20231010 11:37:19.561" endtime="20231010 11:37:19.686"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:19.561" endtime="20231010 11:37:19.686"/>
+</kw>
+<kw name="buscar">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button_submit}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231010 11:37:19.687" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231010 11:37:19.687" endtime="20231010 11:37:19.874"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:19.687" endtime="20231010 11:37:19.874"/>
+</kw>
+<kw name="tirar Screenshot">
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231010 11:37:20.877" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 11:37:19.875" endtime="20231010 11:37:20.877"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231010 11:37:21.033" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231010 11:37:20.877" endtime="20231010 11:37:21.033"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231010 11:37:22.033" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 11:37:21.033" endtime="20231010 11:37:22.033"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:19.875" endtime="20231010 11:37:22.033"/>
+</kw>
+<kw name="fechar site">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231010 11:37:22.035" endtime="20231010 11:37:24.194"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:22.035" endtime="20231010 11:37:24.194"/>
+</kw>
+<status status="PASS" starttime="20231010 11:37:17.278" endtime="20231010 11:37:24.194"/>
+</test>
+<status status="PASS" starttime="20231010 11:37:04.115" endtime="20231010 11:37:24.196"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Casopesquisa">Casopesquisa</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
