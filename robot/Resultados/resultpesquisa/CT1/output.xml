@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20231011 08:38:06.803" rpa="false" schemaversion="4">
+<suite id="s1" name="CT1" source="C:\xampp\htdocs\MenuUniversitario\robot\Tests\Pesquisa\CT1.robot">
+<test id="s1-t1" name="Cenário de Teste 1: Pesquisa com filtro de nome" line="4">
+<kw name="abrir site de Pesquisa" library="Pesquisa_Steps">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${link_pesquisa}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231011 08:38:06.944" level="INFO">Opening browser 'gc' to base url 'http://localhost/MenuUniversitario/pesquisa.php'.</msg>
+<status status="PASS" starttime="20231011 08:38:06.944" endtime="20231011 08:38:08.529"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231011 08:38:08.529" endtime="20231011 08:38:08.641"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:06.944" endtime="20231011 08:38:08.641"/>
+</kw>
+<kw name="digitar nome do produto" library="Pesquisa_Steps">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Pesquisa.filtro_input_nome}</arg>
+<arg>${nome_produto}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231011 08:38:08.645" level="INFO">Typing text 'calzone' into text field 'id:produto'.</msg>
+<status status="PASS" starttime="20231011 08:38:08.642" endtime="20231011 08:38:08.807"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:08.641" endtime="20231011 08:38:08.807"/>
+</kw>
+<kw name="buscar" library="Pesquisa_Steps">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Pesquisa.button_submit_pesquisa}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 08:38:08.813" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231011 08:38:08.809" endtime="20231011 08:38:08.923"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:08.809" endtime="20231011 08:38:08.923"/>
+</kw>
+<kw name="tirar Screenshot" library="Pesquisa_Steps">
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231011 08:38:09.926" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231011 08:38:08.925" endtime="20231011 08:38:09.926"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231011 08:38:10.076" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231011 08:38:09.926" endtime="20231011 08:38:10.076"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231011 08:38:11.076" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231011 08:38:10.076" endtime="20231011 08:38:11.076"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:08.924" endtime="20231011 08:38:11.076"/>
+</kw>
+<kw name="fechar site de Pesquisa" library="Pesquisa_Steps">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231011 08:38:11.076" endtime="20231011 08:38:13.240"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:11.076" endtime="20231011 08:38:13.240"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:06.944" endtime="20231011 08:38:13.240"/>
+</test>
+<status status="PASS" starttime="20231011 08:38:06.803" endtime="20231011 08:38:13.243"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="CT1">CT1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

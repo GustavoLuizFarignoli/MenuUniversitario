@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20231011 08:38:35.868" rpa="false" schemaversion="4">
+<suite id="s1" name="CT2" source="C:\xampp\htdocs\MenuUniversitario\robot\Tests\Pesquisa\CT2.robot">
+<test id="s1-t1" name="Cenário de Teste 2: Pesquisa com filtro de categoria" line="4">
+<kw name="abrir site de Pesquisa" library="Pesquisa_Steps">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${link_pesquisa}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231011 08:38:36.016" level="INFO">Opening browser 'gc' to base url 'http://localhost/MenuUniversitario/pesquisa.php'.</msg>
+<status status="PASS" starttime="20231011 08:38:36.016" endtime="20231011 08:38:37.876"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231011 08:38:37.877" endtime="20231011 08:38:38.010"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:36.016" endtime="20231011 08:38:38.010"/>
+</kw>
+<kw name="selecionar categoria" library="Pesquisa_Steps">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Pesquisa.filtro_categoria}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 08:38:38.013" level="INFO">Clicking element '//span[text()='Vegetariano']'.</msg>
+<status status="PASS" starttime="20231011 08:38:38.011" endtime="20231011 08:38:38.075"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:38.011" endtime="20231011 08:38:38.075"/>
+</kw>
+<kw name="buscar" library="Pesquisa_Steps">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Pesquisa.button_submit_pesquisa}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 08:38:38.077" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231011 08:38:38.076" endtime="20231011 08:38:38.191"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:38.076" endtime="20231011 08:38:38.193"/>
+</kw>
+<kw name="tirar Screenshot" library="Pesquisa_Steps">
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231011 08:38:39.197" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231011 08:38:38.196" endtime="20231011 08:38:39.197"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231011 08:38:39.345" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231011 08:38:39.197" endtime="20231011 08:38:39.345"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231011 08:38:40.346" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231011 08:38:39.346" endtime="20231011 08:38:40.346"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:38.195" endtime="20231011 08:38:40.346"/>
+</kw>
+<kw name="fechar site de Pesquisa" library="Pesquisa_Steps">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231011 08:38:40.346" endtime="20231011 08:38:42.493"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:40.346" endtime="20231011 08:38:42.493"/>
+</kw>
+<status status="PASS" starttime="20231011 08:38:36.015" endtime="20231011 08:38:42.494"/>
+</test>
+<status status="PASS" starttime="20231011 08:38:35.869" endtime="20231011 08:38:42.498"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="CT2">CT2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
