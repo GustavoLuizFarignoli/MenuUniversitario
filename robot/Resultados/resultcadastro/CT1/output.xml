@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20231011 08:36:06.552" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20231031 07:52:27.565" rpa="false" schemaversion="4">
 <suite id="s1" name="CT1" source="C:\xampp\htdocs\MenuUniversitario\robot\Tests\Cadastro\CT1.robot">
 <test id="s1-t1" name="Cenário de Teste 1: Cadastro com login já existente" line="5">
 <kw name="abrir site de Cadastro" library="Cadastro_Steps">
@@ -7,96 +7,100 @@
 <arg>${link_cadastro}</arg>
 <arg>${Browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231011 08:36:06.702" level="INFO">Opening browser 'gc' to base url 'http://localhost/MenuUniversitario/register.php'.</msg>
-<status status="PASS" starttime="20231011 08:36:06.702" endtime="20231011 08:36:08.516"/>
+<msg timestamp="20231031 07:52:27.966" level="INFO">Opening browser 'gc' to base url 'http://localhost/MenuUniversitario/register.php'.</msg>
+<msg timestamp="20231031 07:52:38.862" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231031 07:52:38.862" level="FAIL">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=118.0.5993.118)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6EA218EF2+54786]
+	(No symbol) [0x00007FF6EA185612]
+	(No symbol) [0x00007FF6EA03A64B]
+	(No symbol) [0x00007FF6EA0363F3]
+	(No symbol) [0x00007FF6EA02971C]
+	(No symbol) [0x00007FF6EA02A977]
+	(No symbol) [0x00007FF6EA029B13]
+	(No symbol) [0x00007FF6EA028B8E]
+	(No symbol) [0x00007FF6EA028B33]
+	(No symbol) [0x00007FF6EA0273AA]
+	(No symbol) [0x00007FF6EA027CA3]
+	(No symbol) [0x00007FF6EA03CA5F]
+	(No symbol) [0x00007FF6EA0B5077]
+	(No symbol) [0x00007FF6EA09BE6A]
+	(No symbol) [0x00007FF6EA0B4D02]
+	(No symbol) [0x00007FF6EA09BC43]
+	(No symbol) [0x00007FF6EA070941]
+	(No symbol) [0x00007FF6EA071B84]
+	GetHandleVerifier [0x00007FF6EA567F52+3524194]
+	GetHandleVerifier [0x00007FF6EA5BD800+3874576]
+	GetHandleVerifier [0x00007FF6EA5B5D7F+3843215]
+	GetHandleVerifier [0x00007FF6EA2B5086+694166]
+	(No symbol) [0x00007FF6EA190A88]
+	(No symbol) [0x00007FF6EA18CA94]
+	(No symbol) [0x00007FF6EA18CBC2]
+	(No symbol) [0x00007FF6EA17CC83]
+	BaseThreadInitThunk [0x00007FFE511C26AD+29]
+	RtlUserThreadStart [0x00007FFE52E2AA68+40]
+</msg>
+<status status="FAIL" starttime="20231031 07:52:27.966" endtime="20231031 07:52:39.143"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20231011 08:36:08.516" endtime="20231011 08:36:08.632"/>
+<status status="NOT RUN" starttime="20231031 07:52:39.143" endtime="20231031 07:52:39.143"/>
 </kw>
-<status status="PASS" starttime="20231011 08:36:06.702" endtime="20231011 08:36:08.632"/>
+<status status="FAIL" starttime="20231031 07:52:27.966" endtime="20231031 07:52:39.143"/>
 </kw>
 <kw name="preencher formulário com informação prévia" library="Cadastro_Steps">
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${Cadastro.nome_cadastro}</arg>
-<arg>${nome_existente_cadastro}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231011 08:36:08.638" level="INFO">Typing text 'Wellington Rato' into text field 'id:nome'.</msg>
-<status status="PASS" starttime="20231011 08:36:08.632" endtime="20231011 08:36:08.822"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${Cadastro.email_cadastro}</arg>
-<arg>${email_existente_cadastro}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231011 08:36:08.825" level="INFO">Typing text 'well@gmail.com' into text field 'id:email'.</msg>
-<status status="PASS" starttime="20231011 08:36:08.822" endtime="20231011 08:36:08.928"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${Cadastro.senha_cadastro}</arg>
-<arg>${senha_existente_cadastro}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231011 08:36:08.930" level="INFO">Typing text 'A1s2d3f4' into text field 'id:psw'.</msg>
-<status status="PASS" starttime="20231011 08:36:08.928" endtime="20231011 08:36:09.044"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${Cadastro.confirmar_senha_cadastro}</arg>
-<arg>${senha_existente_cadastro}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231011 08:36:09.044" level="INFO">Typing text 'A1s2d3f4' into text field 'id:psw-repeat'.</msg>
-<status status="PASS" starttime="20231011 08:36:09.044" endtime="20231011 08:36:09.147"/>
-</kw>
-<status status="PASS" starttime="20231011 08:36:08.632" endtime="20231011 08:36:09.147"/>
+<status status="NOT RUN" starttime="20231031 07:52:39.143" endtime="20231031 07:52:39.143"/>
 </kw>
 <kw name="enviar dados de Cadastro" library="Cadastro_Steps">
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>${Cadastro.button_submit_cadastro}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231011 08:36:09.150" level="INFO">Clicking button '//button[@type='submit']'.</msg>
-<status status="PASS" starttime="20231011 08:36:09.147" endtime="20231011 08:36:09.378"/>
-</kw>
-<status status="PASS" starttime="20231011 08:36:09.147" endtime="20231011 08:36:09.379"/>
+<status status="NOT RUN" starttime="20231031 07:52:39.143" endtime="20231031 07:52:39.143"/>
 </kw>
 <kw name="fechar site de Cadastro" library="Cadastro_Steps">
-<kw name="Alert Should Be Present" library="SeleniumLibrary">
-<doc>Verifies that an alert is present and by default, accepts it.</doc>
-<msg timestamp="20231011 08:36:09.380" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<status status="PASS" starttime="20231011 08:36:09.379" endtime="20231011 08:36:09.380"/>
+<status status="NOT RUN" starttime="20231031 07:52:39.143" endtime="20231031 07:52:39.143"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231011 08:36:11.386" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231011 08:36:09.385" endtime="20231011 08:36:11.386"/>
-</kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20231011 08:36:11.530" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20231011 08:36:11.386" endtime="20231011 08:36:11.530"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231011 08:36:12.531" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20231011 08:36:11.530" endtime="20231011 08:36:12.531"/>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20231011 08:36:12.531" endtime="20231011 08:36:14.671"/>
-</kw>
-<status status="PASS" starttime="20231011 08:36:09.379" endtime="20231011 08:36:14.671"/>
-</kw>
-<status status="PASS" starttime="20231011 08:36:06.702" endtime="20231011 08:36:14.672"/>
+<status status="FAIL" starttime="20231031 07:52:27.966" endtime="20231031 07:52:39.143">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=118.0.5993.118)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6EA218EF2+54786]
+	(No symbol) [0x00007FF6EA185612]
+	(No symbol) [0x00007FF6EA03A64B]
+	(No symbol) [0x00007FF6EA0363F3]
+	(No symbol) [0x00007FF6EA02971C]
+	(No symbol) [0x00007FF6EA02A977]
+	(No symbol) [0x00007FF6EA029B13]
+	(No symbol) [0x00007FF6EA028B8E]
+	(No symbol) [0x00007FF6EA028B33]
+	(No symbol) [0x00007FF6EA0273AA]
+	(No symbol) [0x00007FF6EA027CA3]
+	(No symbol) [0x00007FF6EA03CA5F]
+	(No symbol) [0x00007FF6EA0B5077]
+	(No symbol) [0x00007FF6EA09BE6A]
+	(No symbol) [0x00007FF6EA0B4D02]
+	(No symbol) [0x00007FF6EA09BC43]
+	(No symbol) [0x00007FF6EA070941]
+	(No symbol) [0x00007FF6EA071B84]
+	GetHandleVerifier [0x00007FF6EA567F52+3524194]
+	GetHandleVerifier [0x00007FF6EA5BD800+3874576]
+	GetHandleVerifier [0x00007FF6EA5B5D7F+3843215]
+	GetHandleVerifier [0x00007FF6EA2B5086+694166]
+	(No symbol) [0x00007FF6EA190A88]
+	(No symbol) [0x00007FF6EA18CA94]
+	(No symbol) [0x00007FF6EA18CBC2]
+	(No symbol) [0x00007FF6EA17CC83]
+	BaseThreadInitThunk [0x00007FFE511C26AD+29]
+	RtlUserThreadStart [0x00007FFE52E2AA68+40]
+</status>
 </test>
-<status status="PASS" starttime="20231011 08:36:06.552" endtime="20231011 08:36:14.673"/>
+<status status="FAIL" starttime="20231031 07:52:27.572" endtime="20231031 07:52:39.151"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="CT1">CT1</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="CT1">CT1</stat>
 </suite>
 </statistics>
 <errors>

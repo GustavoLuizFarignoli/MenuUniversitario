@@ -3,20 +3,20 @@ Resource    ../../Resources/Settings.resource
 Resource    ../../Elements/Main_Elements.resource
 
 *** Keywords ***
-abrir site de Pesquisa
+Dado que esteja no site de Pesquisa
     Open Browser     ${link_pesquisa}    ${Browser}
     Maximize Browser Window
-selecionar bloco
+Quando eu seleciono o bloco
     Select From List By Value    ${Pesquisa.filtro_bloco}    ${n_bloco}
-digitar nome do produto
+Quando eu digito o nome do produto
     Input Text    ${Pesquisa.filtro_input_nome}    ${nome_produto}
-buscar
+E busco os resultados
     Click Element    ${Pesquisa.button_submit_pesquisa}
-selecionar categoria
+Quando eu seleciono uma categoria
     Click Element    ${Pesquisa.filtro_categoria}    
-tirar Screenshot
+E tiro um Screenshot da tela
     Sleep    1s
     Capture Page Screenshot
     Sleep    1s
-fechar site de Pesquisa
+Então eu fecho site de Pesquisa
     Close Browser

@@ -4,16 +4,16 @@ Resource    ../../Elements/Main_Elements.resource
 
 *** Keywords ***
 *** Keywords ***
-abrir site na página Home
+Dado que eu esteja na página Home do site
     Open Browser      ${link_visualizar}    ${Browser}
     Maximize Browser Window
-entrar na página de um bloco
+Quando eu entro na página de um bloco
     Click Element    ${Visualizar.button_bloco}
-selecionar cardápio
+E seleciono um cardápio
     Click Element    ${Visualizar.button_cardapio}
-fechar site de Visualização
-    Sleep    1s
-    Close Browser
-tirar Screenshot2
+E tiro uma Screenshot do cardápio
     Sleep    1s
     Capture Page Screenshot
+Então eu fecho o site de Visualização
+    Sleep    1s
+    Close Browser

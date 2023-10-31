@@ -2,9 +2,8 @@
 Resource    ../../Steps/Visualizar/Visualizar_Steps.robot
 *** Test Cases ***
 Cenário de Teste 1: Visualizar cardápio
-    abrir site na página Home
-    entrar na página de um bloco
-    tirar Screenshot2
-    selecionar cardápio
-    tirar Screenshot2
-    fechar site de Visualização
+    Dado que eu esteja na página Home do site
+    Quando eu entro na página de um bloco
+    E seleciono um cardápio
+    E tiro uma Screenshot do cardápio
+    Então eu fecho o site de Visualização

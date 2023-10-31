@@ -4,7 +4,8 @@ Resource    ../../Steps/Login/Login_Steps.robot
 
 *** Test Cases ***
 Cenário de Teste 2: Login com informação errada
-    abrir site de Login
-    preencher formulário errado
-    enviar dados de Login
-    fechar site de Login
+    Dado que eu esteja no site de Login
+    Quando eu preencho o formulário com informações erradas
+    E envio os dados de Login
+    E espero um alerta de login realizado
+    Então fecho o site de Login
